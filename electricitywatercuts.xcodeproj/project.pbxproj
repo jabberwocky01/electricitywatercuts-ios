@@ -7,33 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950F536A2094742C00B6A29C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 950F53682094742C00B6A29C /* Localizable.strings */; };
 		9517F749208F7B84000C0A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F748208F7B84000C0A0B /* AppDelegate.swift */; };
 		9517F74B208F7B84000C0A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F74A208F7B84000C0A0B /* ViewController.swift */; };
 		9517F74E208F7B84000C0A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9517F74C208F7B84000C0A0B /* Main.storyboard */; };
 		9517F750208F7B87000C0A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9517F74F208F7B87000C0A0B /* Assets.xcassets */; };
 		9517F753208F7B87000C0A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9517F751208F7B87000C0A0B /* LaunchScreen.storyboard */; };
-		9517F75E208F7B87000C0A0B /* electricitywatercutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F75D208F7B87000C0A0B /* electricitywatercutsTests.swift */; };
-		9517F769208F7B87000C0A0B /* electricitywatercutsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F768208F7B87000C0A0B /* electricitywatercutsUITests.swift */; };
+		9517F779208F7D94000C0A0B /* ElectricityWaterCutsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F778208F7D94000C0A0B /* ElectricityWaterCutsTableViewController.swift */; };
+		9517F77B208F888A000C0A0B /* Cuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F77A208F888A000C0A0B /* Cuts.swift */; };
+		9517F77D208FA0A5000C0A0B /* CutsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F77C208FA0A5000C0A0B /* CutsConstants.swift */; };
+		951A7E482090D391002E6F87 /* CutsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A7E472090D391002E6F87 /* CutsHelper.swift */; };
+		951A7E4A2090EA21002E6F87 /* CutsUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A7E492090EA21002E6F87 /* CutsUpdateService.swift */; };
+		9583E09620948CB900B6362C /* CutsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E09520948CB900B6362C /* CutsDelegate.swift */; };
+		9583E09820948FE000B6362C /* CutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E09720948FE000B6362C /* CutsViewController.swift */; };
+		95A0ED77209749FE00539083 /* CutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A0ED76209749FE00539083 /* CutsProvider.swift */; };
+		95E87C562094DBF100F62B97 /* CutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E87C552094DBF100F62B97 /* CutsTableViewCell.swift */; };
+		C472756C914A032C6FE2E5F5 /* Pods_electricitywatercuts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BCF771CE91ED1285C9F99A /* Pods_electricitywatercuts.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		9517F75A208F7B87000C0A0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9517F73D208F7B84000C0A0B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9517F744208F7B84000C0A0B;
-			remoteInfo = electricitywatercuts;
-		};
-		9517F765208F7B87000C0A0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9517F73D208F7B84000C0A0B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9517F744208F7B84000C0A0B;
-			remoteInfo = electricitywatercuts;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		33321D765F33CD61083DAF22 /* Pods-electricitywatercuts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-electricitywatercuts.release.xcconfig"; path = "Pods/Target Support Files/Pods-electricitywatercuts/Pods-electricitywatercuts.release.xcconfig"; sourceTree = "<group>"; };
+		950F53662094721200B6A29C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		950F53672094721200B6A29C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		950F53692094742C00B6A29C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = electricitywatercuts/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		950F536B2094748900B6A29C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = electricitywatercuts/tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9517F745208F7B84000C0A0B /* electricitywatercuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = electricitywatercuts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9517F748208F7B84000C0A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9517F74A208F7B84000C0A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,12 +38,17 @@
 		9517F74F208F7B87000C0A0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9517F752208F7B87000C0A0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9517F754208F7B87000C0A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9517F759208F7B87000C0A0B /* electricitywatercutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = electricitywatercutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9517F75D208F7B87000C0A0B /* electricitywatercutsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = electricitywatercutsTests.swift; sourceTree = "<group>"; };
-		9517F75F208F7B87000C0A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9517F764208F7B87000C0A0B /* electricitywatercutsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = electricitywatercutsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9517F768208F7B87000C0A0B /* electricitywatercutsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = electricitywatercutsUITests.swift; sourceTree = "<group>"; };
-		9517F76A208F7B87000C0A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9517F778208F7D94000C0A0B /* ElectricityWaterCutsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricityWaterCutsTableViewController.swift; sourceTree = "<group>"; };
+		9517F77A208F888A000C0A0B /* Cuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuts.swift; sourceTree = "<group>"; };
+		9517F77C208FA0A5000C0A0B /* CutsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsConstants.swift; sourceTree = "<group>"; };
+		951A7E472090D391002E6F87 /* CutsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsHelper.swift; sourceTree = "<group>"; };
+		951A7E492090EA21002E6F87 /* CutsUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsUpdateService.swift; sourceTree = "<group>"; };
+		9583E09520948CB900B6362C /* CutsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsDelegate.swift; sourceTree = "<group>"; };
+		9583E09720948FE000B6362C /* CutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsViewController.swift; sourceTree = "<group>"; };
+		95A0ED76209749FE00539083 /* CutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsProvider.swift; sourceTree = "<group>"; };
+		95E87C552094DBF100F62B97 /* CutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsTableViewCell.swift; sourceTree = "<group>"; };
+		A5BCF771CE91ED1285C9F99A /* Pods_electricitywatercuts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_electricitywatercuts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B84C0E985C24B70830127C7A /* Pods-electricitywatercuts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-electricitywatercuts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-electricitywatercuts/Pods-electricitywatercuts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,33 +56,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9517F756208F7B87000C0A0B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9517F761208F7B87000C0A0B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				C472756C914A032C6FE2E5F5 /* Pods_electricitywatercuts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D6868701EEC728BA4D9A67D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B84C0E985C24B70830127C7A /* Pods-electricitywatercuts.debug.xcconfig */,
+				33321D765F33CD61083DAF22 /* Pods-electricitywatercuts.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9517F73C208F7B84000C0A0B = {
 			isa = PBXGroup;
 			children = (
+				950F53682094742C00B6A29C /* Localizable.strings */,
 				9517F747208F7B84000C0A0B /* electricitywatercuts */,
-				9517F75C208F7B87000C0A0B /* electricitywatercutsTests */,
-				9517F767208F7B87000C0A0B /* electricitywatercutsUITests */,
 				9517F746208F7B84000C0A0B /* Products */,
+				7D6868701EEC728BA4D9A67D /* Pods */,
+				E0B29283CBA74498A9D39570 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,8 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				9517F745208F7B84000C0A0B /* electricitywatercuts.app */,
-				9517F759208F7B87000C0A0B /* electricitywatercutsTests.xctest */,
-				9517F764208F7B87000C0A0B /* electricitywatercutsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,26 +100,25 @@
 				9517F74F208F7B87000C0A0B /* Assets.xcassets */,
 				9517F751208F7B87000C0A0B /* LaunchScreen.storyboard */,
 				9517F754208F7B87000C0A0B /* Info.plist */,
+				9517F778208F7D94000C0A0B /* ElectricityWaterCutsTableViewController.swift */,
+				9517F77A208F888A000C0A0B /* Cuts.swift */,
+				9517F77C208FA0A5000C0A0B /* CutsConstants.swift */,
+				951A7E472090D391002E6F87 /* CutsHelper.swift */,
+				951A7E492090EA21002E6F87 /* CutsUpdateService.swift */,
+				9583E09520948CB900B6362C /* CutsDelegate.swift */,
+				9583E09720948FE000B6362C /* CutsViewController.swift */,
+				95E87C552094DBF100F62B97 /* CutsTableViewCell.swift */,
+				95A0ED76209749FE00539083 /* CutsProvider.swift */,
 			);
 			path = electricitywatercuts;
 			sourceTree = "<group>";
 		};
-		9517F75C208F7B87000C0A0B /* electricitywatercutsTests */ = {
+		E0B29283CBA74498A9D39570 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9517F75D208F7B87000C0A0B /* electricitywatercutsTests.swift */,
-				9517F75F208F7B87000C0A0B /* Info.plist */,
+				A5BCF771CE91ED1285C9F99A /* Pods_electricitywatercuts.framework */,
 			);
-			path = electricitywatercutsTests;
-			sourceTree = "<group>";
-		};
-		9517F767208F7B87000C0A0B /* electricitywatercutsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9517F768208F7B87000C0A0B /* electricitywatercutsUITests.swift */,
-				9517F76A208F7B87000C0A0B /* Info.plist */,
-			);
-			path = electricitywatercutsUITests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9517F76D208F7B87000C0A0B /* Build configuration list for PBXNativeTarget "electricitywatercuts" */;
 			buildPhases = (
+				D62D5FCF547D00CEA444F222 /* [CP] Check Pods Manifest.lock */,
 				9517F741208F7B84000C0A0B /* Sources */,
 				9517F742208F7B84000C0A0B /* Frameworks */,
 				9517F743208F7B84000C0A0B /* Resources */,
+				AA50BE932316FA00A24F5506 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,42 +142,6 @@
 			productName = electricitywatercuts;
 			productReference = 9517F745208F7B84000C0A0B /* electricitywatercuts.app */;
 			productType = "com.apple.product-type.application";
-		};
-		9517F758208F7B87000C0A0B /* electricitywatercutsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9517F770208F7B87000C0A0B /* Build configuration list for PBXNativeTarget "electricitywatercutsTests" */;
-			buildPhases = (
-				9517F755208F7B87000C0A0B /* Sources */,
-				9517F756208F7B87000C0A0B /* Frameworks */,
-				9517F757208F7B87000C0A0B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9517F75B208F7B87000C0A0B /* PBXTargetDependency */,
-			);
-			name = electricitywatercutsTests;
-			productName = electricitywatercutsTests;
-			productReference = 9517F759208F7B87000C0A0B /* electricitywatercutsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		9517F763208F7B87000C0A0B /* electricitywatercutsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9517F773208F7B87000C0A0B /* Build configuration list for PBXNativeTarget "electricitywatercutsUITests" */;
-			buildPhases = (
-				9517F760208F7B87000C0A0B /* Sources */,
-				9517F761208F7B87000C0A0B /* Frameworks */,
-				9517F762208F7B87000C0A0B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9517F766208F7B87000C0A0B /* PBXTargetDependency */,
-			);
-			name = electricitywatercutsUITests;
-			productName = electricitywatercutsUITests;
-			productReference = 9517F764208F7B87000C0A0B /* electricitywatercutsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -194,14 +156,6 @@
 					9517F744208F7B84000C0A0B = {
 						CreatedOnToolsVersion = 9.3;
 					};
-					9517F758208F7B87000C0A0B = {
-						CreatedOnToolsVersion = 9.3;
-						TestTargetID = 9517F744208F7B84000C0A0B;
-					};
-					9517F763208F7B87000C0A0B = {
-						CreatedOnToolsVersion = 9.3;
-						TestTargetID = 9517F744208F7B84000C0A0B;
-					};
 				};
 			};
 			buildConfigurationList = 9517F740208F7B84000C0A0B /* Build configuration list for PBXProject "electricitywatercuts" */;
@@ -211,6 +165,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 9517F73C208F7B84000C0A0B;
 			productRefGroup = 9517F746208F7B84000C0A0B /* Products */;
@@ -218,8 +173,6 @@
 			projectRoot = "";
 			targets = (
 				9517F744208F7B84000C0A0B /* electricitywatercuts */,
-				9517F758208F7B87000C0A0B /* electricitywatercutsTests */,
-				9517F763208F7B87000C0A0B /* electricitywatercutsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,74 +182,90 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950F536A2094742C00B6A29C /* Localizable.strings in Resources */,
 				9517F753208F7B87000C0A0B /* LaunchScreen.storyboard in Resources */,
 				9517F750208F7B87000C0A0B /* Assets.xcassets in Resources */,
 				9517F74E208F7B84000C0A0B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9517F757208F7B87000C0A0B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9517F762208F7B87000C0A0B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA50BE932316FA00A24F5506 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-electricitywatercuts/Pods-electricitywatercuts-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-electricitywatercuts/Pods-electricitywatercuts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D62D5FCF547D00CEA444F222 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-electricitywatercuts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9517F741208F7B84000C0A0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E87C562094DBF100F62B97 /* CutsTableViewCell.swift in Sources */,
+				9517F77B208F888A000C0A0B /* Cuts.swift in Sources */,
 				9517F74B208F7B84000C0A0B /* ViewController.swift in Sources */,
+				95A0ED77209749FE00539083 /* CutsProvider.swift in Sources */,
+				9583E09820948FE000B6362C /* CutsViewController.swift in Sources */,
+				951A7E4A2090EA21002E6F87 /* CutsUpdateService.swift in Sources */,
+				951A7E482090D391002E6F87 /* CutsHelper.swift in Sources */,
+				9517F779208F7D94000C0A0B /* ElectricityWaterCutsTableViewController.swift in Sources */,
+				9517F77D208FA0A5000C0A0B /* CutsConstants.swift in Sources */,
 				9517F749208F7B84000C0A0B /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9517F755208F7B87000C0A0B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9517F75E208F7B87000C0A0B /* electricitywatercutsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9517F760208F7B87000C0A0B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9517F769208F7B87000C0A0B /* electricitywatercutsUITests.swift in Sources */,
+				9583E09620948CB900B6362C /* CutsDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		9517F75B208F7B87000C0A0B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9517F744208F7B84000C0A0B /* electricitywatercuts */;
-			targetProxy = 9517F75A208F7B87000C0A0B /* PBXContainerItemProxy */;
-		};
-		9517F766208F7B87000C0A0B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9517F744208F7B84000C0A0B /* electricitywatercuts */;
-			targetProxy = 9517F765208F7B87000C0A0B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		950F53682094742C00B6A29C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				950F53692094742C00B6A29C /* Base */,
+				950F536B2094748900B6A29C /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9517F74C208F7B84000C0A0B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9517F74D208F7B84000C0A0B /* Base */,
+				950F53662094721200B6A29C /* tr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -305,6 +274,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9517F752208F7B87000C0A0B /* Base */,
+				950F53672094721200B6A29C /* tr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -316,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -376,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -428,9 +400,12 @@
 		};
 		9517F76E208F7B87000C0A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B84C0E985C24B70830127C7A /* Pods-electricitywatercuts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LLUPAY4722;
 				INFOPLIST_FILE = electricitywatercuts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,9 +420,12 @@
 		};
 		9517F76F208F7B87000C0A0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33321D765F33CD61083DAF22 /* Pods-electricitywatercuts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LLUPAY4722;
 				INFOPLIST_FILE = electricitywatercuts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,84 +435,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		9517F771208F7B87000C0A0B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = electricitywatercutsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nils.electricitywatercutsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/electricitywatercuts.app/electricitywatercuts";
-			};
-			name = Debug;
-		};
-		9517F772208F7B87000C0A0B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = electricitywatercutsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nils.electricitywatercutsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/electricitywatercuts.app/electricitywatercuts";
-			};
-			name = Release;
-		};
-		9517F774208F7B87000C0A0B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = electricitywatercutsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nils.electricitywatercutsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = electricitywatercuts;
-			};
-			name = Debug;
-		};
-		9517F775208F7B87000C0A0B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = electricitywatercutsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nils.electricitywatercutsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = electricitywatercuts;
 			};
 			name = Release;
 		};
@@ -555,24 +455,6 @@
 			buildConfigurations = (
 				9517F76E208F7B87000C0A0B /* Debug */,
 				9517F76F208F7B87000C0A0B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9517F770208F7B87000C0A0B /* Build configuration list for PBXNativeTarget "electricitywatercutsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9517F771208F7B87000C0A0B /* Debug */,
-				9517F772208F7B87000C0A0B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9517F773208F7B87000C0A0B /* Build configuration list for PBXNativeTarget "electricitywatercutsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9517F774208F7B87000C0A0B /* Debug */,
-				9517F775208F7B87000C0A0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

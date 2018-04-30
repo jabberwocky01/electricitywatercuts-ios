@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings -- EN
+  electricitywatercuts
+
+  Created by nils on 28.04.2018.
+  Copyright © 2018 nils. All rights reserved.
+*/
+
+"app_name" = "Water&amp;Power Outage";
+"action_settings" = "Settings";
+"action_search" = "Search";
+"menu_update" = "Update";
+"cut_details" = "Details";
+"operator_title" = "Plant Name:";
+"start_end_date_title" = "Start-End Date:";
+"location_title" = "Affected Areas:";
+"reason_title" = "Reason:";
+"image_content_desc" = "Outage";
+"cuts_range_header" = "LISTING";
+"cuts_range" = "Listing cuts";
+"cuts_range_sum" = "Choose to see only latest or also previously loaded cuts.";
+"cuts_refresh_header" = "REFRESH";
+"cuts_refresh_freq" = "Outage refresh frequency";
+"cuts_refresh_freq_sum" = "Click to change the outage refresh frequency.";
+"cuts_order_header" = "ORDER";
+"cuts_order_criteria_option" = "Outage order criteria";
+"cuts_order_criteria_option_sum" = "Choose the order criteria for the outages listed.";
+"cuts_order_option" = "Outage listing order";
+"cuts_order_option_sum" = "Choose the listing order for the outages.";
+"cuts_search_str" = "Search Keywords";
+"cuts_search_str_sum" = "Type in the keywords to be searched in the outages (using Turkish characters, separated by commas).";
+"cuts_lang_header" = "LANGUAGE";
+"cuts_lang" = "Application language";
+"cuts_lang_sum" = "Select language.";
+"water_label" = "Water";
+"electricity_label" = "Electricity";
+"share" = "Share";
+"choose_app_to_share_msg" = "Choose an application for sharing:";
+"no_share_apps_err_msg" = "No application suitable for sharing is found!";
+"water_cut_label" = "Water Outage";
+"electricity_cut_label" = "Electricity Outage";
+"for_more_cuts_label" = "For more:";
+"cuts_ticker" = "New Outage Notification";
+"cuts_notify_text" = "There are new breakdown-outage notifications.";
+"cuts_notify_header" = "New %@ Outage:";
+"cuts_app_rate_sum" = "Rate %@ Application";
+"cuts_app_rate" = "If you enjoy using %@, please take a moment to rate/review the app. Thank you for your support!";
+"cuts_app_rate_btn" = "Rate";
+"cuts_app_remind_btn" = "Remind me later";
+"cuts_app_already_btn" = "Already have";
+"no_cuts_text" = "Loading progress continues or there are no new cuts to be listed.";

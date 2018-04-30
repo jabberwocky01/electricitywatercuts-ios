@@ -1,0 +1,6 @@
+framework module Pods_electricitywatercuts {
+  umbrella header "Pods-electricitywatercuts-umbrella.h"
+
+  export *
+  module * { export * }
+}
