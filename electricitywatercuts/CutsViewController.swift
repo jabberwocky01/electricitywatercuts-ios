@@ -9,6 +9,10 @@
 import Foundation
 
 extension ElectricityWaterCutsTableViewController: CutsDelegate {
+    func createTable() {
+        
+    }
+    
     func didReceiveRefreshCuts(notificationFlag: Bool) {
         
     }

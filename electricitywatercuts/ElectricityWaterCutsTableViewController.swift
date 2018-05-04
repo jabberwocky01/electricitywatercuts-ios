@@ -18,11 +18,8 @@ class ElectricityWaterCutsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         cutsUpdateHelper.delegate = self
-        cutsProvider.createTable()
+        // cutsProvider.createTable()
         cutsUpdateHelper.refreshCuts(notificationFlag: false)
-        
-        // tableView.rowHeight = UITableViewAutomaticDimension
-        // tableView.estimatedRowHeight = 300
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

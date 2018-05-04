@@ -30,9 +30,9 @@ class CutsUpdateService {
             if (urls[i].range(of: "bedas") != nil) {
                 temp = getEuropeElectricityData(link: urls[i])
             } else if (urls[i].range(of: "ayedas") != nil) {
-                // temp = getAnatoliaElectricityData(urls[i]);
+                temp = getAnatoliaElectricityData(link: urls[i]);
             } else if (urls[i].range(of: "iski") != nil) {
-                // temp = getWaterData(urls[i]);
+                temp = getWaterData(link: urls[i]);
             }
             
             for j in 0..<temp.count {
@@ -153,6 +153,144 @@ class CutsUpdateService {
         
         return electricalCuts
     }
+    
+    func getAnatoliaElectricityData(link: String) -> [Cuts] {
+        var electricalCuts = [Cuts]()
+        
+        let url = URL(string: link)
+        
+        do {
+            let htmlContent = try String(contentsOf: url!, encoding: .utf8)
+            do {
+                let doc: Document = try SwiftSoup.parse(htmlContent)
+                let cutDateList: Elements = try doc.select("table.table-responsive tr")
+                for cutDate in cutDateList {
+                    let cut = Cuts()
+                    cut.type = CutsConstants.CUT_TYPE_ELECTRICITY
+                    cut.reason = "Planlı Kesinti"
+                    
+                    let operatorName: String = try cutDate.attr("data-ilce")
+                    cut.operatorName = operatorName
+                    
+                    var startDate: String = try cutDate.attr("data-tarih")
+                    let dateParsed = startDate.components(separatedBy: ".")
+                    let day: String = ("00" + dateParsed[0])
+                    let month: String = ("00" + dateParsed[1])
+                    let year: String = dateParsed[2]
+                    var index = day.index(day.endIndex, offsetBy: -2)
+                    startDate = String(day.suffix(from: index))
+                    index = month.index(month.endIndex, offsetBy: -2)
+                    startDate.append("." + String(month.suffix(from: index)))
+                    startDate.append("." + year)
+                    let endDate = startDate;
+                    
+                    let cutLocationList: Elements = cutDate.children()
+                    var cutListStr: String = try cutLocationList.get(0).text();
+                    cutListStr = cutListStr.replacingOccurrences(of: "\\s", with: " ")
+                    
+                    if let index = cutListStr.lowercased(with: Locale(identifier: "tr-TR")).range(of: "saat") {
+                        let hourStr = String(cutListStr[..<index.lowerBound])
+                        let hourArr = hourStr.components(separatedBy: " - ")
+                        let startHour = hourArr[0]
+                        let endHour = hourArr[1]
+                        
+                        cut.startDate = startDate + " " + startHour
+                        cut.endDate = endDate + " " + endHour
+                    }
+                    
+                    let location = try cutLocationList.get(1).text()
+                    cut.location = location
+                    
+                    cut.operatorName = operatorName
+                    
+                    cut.detail = (cut.operatorName ?? "") + " "
+                    cut.detail?.append((cut.startDate ?? "") + "-")
+                    cut.detail?.append((cut.endDate ?? "") + " ")
+                    cut.detail?.append((cut.location ?? "") + " ")
+                    cut.detail?.append((cut.reason ?? ""))
+                    
+                    electricalCuts.append(cut)
+                }
+            } catch Exception.Error(let type, let message){
+                print(message)
+            } catch{
+                print("error")
+            }
+        } catch {
+            print("could not unwrap data object for html content")
+        }
+        
+        return electricalCuts
+    }
 
+    func getWaterData(link: String) -> [Cuts] {
+        var waterCuts = [Cuts]()
+        
+        let url = URL(string: link)
+        
+        do {
+            let htmlContent = try String(contentsOf: url!, encoding: .utf8)
+            do {
+                let doc: Document = try SwiftSoup.parse(htmlContent)
+                let cutItemsList: Elements = try doc.select("table.table-bordered td")
+                var i = 2
+                while(i < cutItemsList.size()) {
+                    let cut = Cuts()
+                    cut.type = CutsConstants.CUT_TYPE_WATER
+                    
+                    let operatorName: String = try cutItemsList.get(i).text();
+                    cut.operatorName = operatorName
+                    
+                    let location = try cutItemsList.get(i+3).text()
+                    cut.location = location
+                    
+                    let reason = try cutItemsList.get(i+6).text()
+                    cut.reason = reason
+                    
+                    var startDate: String = try cutItemsList.get(i+9).text()
+                    let dateArr = startDate.components(separatedBy: " - ")
+                    startDate = dateArr[0]
+                    startDate = CutsHelper.formatDate(dateStr: startDate, inputFormat: CutsConstants.dMyyyy, outputFormat: CutsConstants.ddMMyyyy);
+                    let startHour = dateArr[1];
+                    cut.startDate = startDate + " " + startHour
+                    
+                    let endDateTime: String = try cutItemsList.get(i+12).text()
+                    if let index = endDateTime.range(of: "olarak ") {
+                        var endDate = String(endDateTime[index.upperBound...])
+                        if let index = endDate.range(of: " ") {
+                            endDate = String(endDate[..<index.lowerBound])
+                        }
+                        endDate = CutsHelper.formatDate(dateStr: endDate, inputFormat: CutsConstants.dMyyyy, outputFormat: CutsConstants.ddMMyyyy)
+                        
+                        if let index = endDateTime.range(of: "saat ") {
+                            var endHour = String(endDateTime[index.upperBound...])
+                            if let index = endHour.range(of: " ") {
+                                endHour = String(endHour[..<index.lowerBound])
+                            }
+                            cut.endDate = endDate + " " + endHour
+                        }
+                    }
+                                        
+                    cut.detail = (cut.operatorName ?? "") + " "
+                    cut.detail?.append((cut.startDate ?? "") + "-")
+                    cut.detail?.append((cut.endDate ?? "") + " ")
+                    cut.detail?.append((cut.location ?? "") + " ")
+                    cut.detail?.append((cut.reason ?? ""))
+                    
+                    waterCuts.append(cut)
+                    
+                    i = i + 16
+                }
+            } catch Exception.Error(let type, let message){
+                print(message)
+            } catch{
+                print("error")
+            }
+        } catch {
+            print("could not unwrap data object for html content")
+        }
+        
+        return waterCuts
+    }
     
 }

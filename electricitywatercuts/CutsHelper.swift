@@ -52,8 +52,8 @@ class CutsHelper {
     static func formatDate(dateStr: String, inputFormat: String, outputFormat: String) -> String {
         let locale: Locale = Locale(identifier: "tr-TR")
         let formatter: DateFormatter = DateFormatter()
-        let inputFormat = DateFormatter.dateFormat(fromTemplate: inputFormat, options: 0, locale: Locale(identifier: "tr-TR"))
-        formatter.dateFormat = inputFormat
+        let inputDateFormat = DateFormatter.dateFormat(fromTemplate: inputFormat, options: 0, locale: Locale(identifier: "tr-TR"))
+        formatter.dateFormat = inputDateFormat
         formatter.locale = locale
         if let formattedTime = formatter.date(from: dateStr) {
             let outputFormat = DateFormatter.dateFormat(fromTemplate: outputFormat, options: 0, locale: Locale(identifier: "tr-TR"))
