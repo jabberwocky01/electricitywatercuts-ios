@@ -66,6 +66,14 @@ class Cuts {
         return plainText;
     }
     
+    func getSearchString() -> String {
+        var searchText = (self.operatorName ?? "")
+        searchText.append(" " + (self.location ?? ""))
+        searchText.append(" " + (self.reason ?? ""))
+        
+        return searchText
+    }
+    
 }
 
 

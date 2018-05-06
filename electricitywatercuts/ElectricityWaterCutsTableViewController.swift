@@ -8,18 +8,37 @@
 
 import UIKit
 
-class ElectricityWaterCutsTableViewController: UITableViewController {
+class ElectricityWaterCutsTableViewController: UITableViewController, UISearchResultsUpdating {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     private let cutsUpdateHelper = CutsUpdateService()
     private let cutsProvider = CutsProvider()
 
+    var filteredCuts = [Cuts]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        // searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Cuts"
+        navigationItem.searchController = searchController
+        
+        searchController.searchBar.sizeToFit()
+        tableView.tableHeaderView = searchController.searchBar
+        
+        definesPresentationContext = true
+        
         cutsUpdateHelper.delegate = self
         // cutsProvider.createTable()
         cutsUpdateHelper.refreshCuts(notificationFlag: false)
+        
+        // filteredCuts = cutsUpdateHelper.cutsForNotification!
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -42,7 +61,14 @@ class ElectricityWaterCutsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if isFiltering() {
+            return filteredCuts.count
+        }
         return cutsUpdateHelper.cutsForNotification!.count
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
 
   
@@ -52,7 +78,12 @@ class ElectricityWaterCutsTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of CutsTableViewCell.")
         }
         
-        let cut = cutsUpdateHelper.cutsForNotification![indexPath.row]
+        let cut : Cuts
+        if isFiltering() {
+            cut = filteredCuts[indexPath.row]
+        } else {
+            cut = cutsUpdateHelper.cutsForNotification![indexPath.row]
+        }
         cell.operatorInfo?.text = cut.operatorName
         cell.durationInfo?.text = (cut.startDate ?? "") + " - " + (cut.endDate ?? "")
         cell.detailedInfo?.text = cut.location
@@ -86,6 +117,23 @@ class ElectricityWaterCutsTableViewController: UITableViewController {
              */
         })
         return [shareAction]
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredCuts = self.cutsUpdateHelper.cutsForNotification!.filter({( cut : Cuts) -> Bool in
+            // return (cut.detail?.lowercased().contains(searchText.lowercased()))!
+            return CutsHelper.compareCutsStr(str1: cut.getSearchString(), str2: searchText)
+        })
+        tableView.reloadData()
     }
 
     /*

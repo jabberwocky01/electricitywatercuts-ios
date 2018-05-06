@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "electricitywatercuts/CutsUpdateService.swift"
-            timestampString = "547153038.227061"
+            timestampString = "547315818.076584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "electricitywatercuts/CutsUpdateService.swift"
-            timestampString = "547153038.227535"
+            timestampString = "547315818.077889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -42,28 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "electricitywatercuts/CutsUpdateService.swift"
-            timestampString = "547153038.227844"
+            timestampString = "547315818.078005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "185"
             endingLineNumber = "185"
             landmarkName = "getAnatoliaElectricityData(link:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "electricitywatercuts/CutsUpdateService.swift"
-            timestampString = "547153038.230085"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "refreshCuts(notificationFlag:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

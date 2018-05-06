@@ -126,10 +126,11 @@ class CutsProvider {
             bind(order: CutsRecord.reason.rawValue, value: (cut.reason ?? ""))
             bind(order: CutsRecord.detail.rawValue, value: (cut.detail ?? ""))
             bind(order: CutsRecord.type.rawValue, value: (cut.type ?? ""))
-            var searchText = (cut.operatorName ?? "")
+            /* var searchText = (cut.operatorName ?? "")
             searchText.append(" " + (cut.location ?? ""))
             searchText.append(" " + (cut.reason ?? ""))
-            bind(order: CutsRecord.search_text.rawValue, value: searchText)
+            bind(order: CutsRecord.search_text.rawValue, value: searchText) */
+            bind(order: CutsRecord.search_text.rawValue, value: cut.getSearchString())
             let orderStartDate = CutsHelper.formatDate(dateStr: (cut.startDate ?? ""),
                                                        inputFormat: CutsConstants.ddMMyyyyHHmm, outputFormat: CutsConstants.yyyyMMddHHmmss);
             bind(order: CutsRecord.order_start_date.rawValue, value: orderStartDate)
