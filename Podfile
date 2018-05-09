@@ -7,4 +7,5 @@ target 'electricitywatercuts' do
 
   # Pods for electricitywatercuts
   pod 'SwiftSoup'
+  pod 'SideMenu'
 end

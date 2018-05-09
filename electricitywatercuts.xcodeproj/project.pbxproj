@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950AAD4E20A20593003E44EF /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950AAD4D20A20593003E44EF /* SideMenuTableViewController.swift */; };
+		950AAD5020A211EE003E44EF /* LanguageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950AAD4F20A211EE003E44EF /* LanguageSettingViewController.swift */; };
 		950F536A2094742C00B6A29C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 950F53682094742C00B6A29C /* Localizable.strings */; };
 		9517F749208F7B84000C0A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F748208F7B84000C0A0B /* AppDelegate.swift */; };
 		9517F74B208F7B84000C0A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517F74A208F7B84000C0A0B /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		33321D765F33CD61083DAF22 /* Pods-electricitywatercuts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-electricitywatercuts.release.xcconfig"; path = "Pods/Target Support Files/Pods-electricitywatercuts/Pods-electricitywatercuts.release.xcconfig"; sourceTree = "<group>"; };
+		950AAD4D20A20593003E44EF /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		950AAD4F20A211EE003E44EF /* LanguageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingViewController.swift; sourceTree = "<group>"; };
 		950F53662094721200B6A29C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
 		950F53672094721200B6A29C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		950F53692094742C00B6A29C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = electricitywatercuts/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				9583E09720948FE000B6362C /* CutsViewController.swift */,
 				95E87C552094DBF100F62B97 /* CutsTableViewCell.swift */,
 				95A0ED76209749FE00539083 /* CutsProvider.swift */,
+				950AAD4D20A20593003E44EF /* SideMenuTableViewController.swift */,
+				950AAD4F20A211EE003E44EF /* LanguageSettingViewController.swift */,
 			);
 			path = electricitywatercuts;
 			sourceTree = "<group>";
@@ -199,10 +205,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-electricitywatercuts/Pods-electricitywatercuts-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,11 +245,13 @@
 			files = (
 				95E87C562094DBF100F62B97 /* CutsTableViewCell.swift in Sources */,
 				9517F77B208F888A000C0A0B /* Cuts.swift in Sources */,
+				950AAD5020A211EE003E44EF /* LanguageSettingViewController.swift in Sources */,
 				9517F74B208F7B84000C0A0B /* ViewController.swift in Sources */,
 				95A0ED77209749FE00539083 /* CutsProvider.swift in Sources */,
 				9583E09820948FE000B6362C /* CutsViewController.swift in Sources */,
 				951A7E4A2090EA21002E6F87 /* CutsUpdateService.swift in Sources */,
 				951A7E482090D391002E6F87 /* CutsHelper.swift in Sources */,
+				950AAD4E20A20593003E44EF /* SideMenuTableViewController.swift in Sources */,
 				9517F779208F7D94000C0A0B /* ElectricityWaterCutsTableViewController.swift in Sources */,
 				9517F77D208FA0A5000C0A0B /* CutsConstants.swift in Sources */,
 				9517F749208F7B84000C0A0B /* AppDelegate.swift in Sources */,

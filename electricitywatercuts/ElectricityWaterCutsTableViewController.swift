@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SideMenu
 
 class ElectricityWaterCutsTableViewController: UITableViewController, UISearchResultsUpdating {
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var slideMenuButton: UIBarButtonItem!
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -18,6 +20,36 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
     private let cutsProvider = CutsProvider()
 
     var filteredCuts = [Cuts]()
+   
+    @IBAction func sideMenuOnClick(_ sender: UIBarButtonItem) {
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+    
+
+    fileprivate func setupSideMenu() {
+        
+        // Define the menus
+        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: SideMenuTableViewController())
+        // UISideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration
+        // of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
+        // let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as! UISideMenuNavigationController
+        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
+        
+        // Enable gestures. The left and/or right menus must be set up above for these to work.
+        // Note that these continue to work on the Navigation Controller independent of the View Controller it displays!
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+                
+        // Set up a cool background image for demo purposes
+        SideMenuManager.default.menuAnimationBackgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+        
+        SideMenuManager.default.menuBlurEffectStyle = UIBlurEffectStyle.extraLight
+        // SideMenuManager.default.menuShadowOpacity = 1
+        
+        SideMenuManager.default.menuPresentMode = SideMenuManager.MenuPresentMode.menuSlideIn
+        SideMenuManager.default.menuAnimationFadeStrength = 0.5
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +69,8 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         cutsUpdateHelper.delegate = self
         // cutsProvider.createTable()
         cutsUpdateHelper.refreshCuts(notificationFlag: false)
+        
+        setupSideMenu()
         
         // filteredCuts = cutsUpdateHelper.cutsForNotification!
         

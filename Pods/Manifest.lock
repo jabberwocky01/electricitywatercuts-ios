@@ -1,16 +1,20 @@
 PODS:
+  - SideMenu (3.1.5)
   - SwiftSoup (1.7.1)
 
 DEPENDENCIES:
+  - SideMenu
   - SwiftSoup
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - SideMenu
     - SwiftSoup
 
 SPEC CHECKSUMS:
+  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
   SwiftSoup: 277f7ef548826e0ca7603a06b30d4a5df3ee0587
 
-PODFILE CHECKSUM: d746f5f491da55c52775428807c1eec7ec77f4f5
+PODFILE CHECKSUM: 2d4f27df4566f25b292a637a9215211555d0e1cc
 
 COCOAPODS: 1.5.0
