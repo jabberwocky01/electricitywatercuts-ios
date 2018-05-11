@@ -26,7 +26,7 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
     }
     
 
-    fileprivate func setupSideMenu() {
+    fileprivate func setUpSideMenu() {
         
         // Define the menus
         let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: SideMenuTableViewController())
@@ -55,27 +55,36 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         SideMenuManager.default.menuAnimationFadeStrength = 0.5
     }
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    fileprivate func setUpSearchBar() {
         
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        // searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Cuts"
-        navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        // self.definesPresentationContext = false
         
-        searchController.searchBar.sizeToFit()
-        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.placeholder = CutsHelper.localizedText(language: "tr", key: "action_search")
+        // navigationItem.searchController = searchController
         
-        definesPresentationContext = true
+        // searchController.searchBar.sizeToFit()
+        // tableView.tableHeaderView = searchController.searchBar
+        
+        navigationItem.titleView = searchController.searchBar
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         cutsUpdateHelper.delegate = self
         // cutsProvider.createTable()
         cutsUpdateHelper.refreshCuts(notificationFlag: false)
         
-        setupSideMenu()
+        setUpSideMenu()
+        setUpSearchBar()
+        
+        // localization
+        slideMenuButton.title = CutsHelper.localizedText(language: "tr", key: "action_settings")
         
         // filteredCuts = cutsUpdateHelper.cutsForNotification!
         

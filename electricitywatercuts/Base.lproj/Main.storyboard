@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Swipe Here-->
+        <!--Electricity Water Cuts Table View Controller-->
         <scene sceneID="zZg-tp-ncD">
             <objects>
                 <tableViewController id="bGi-Vq-Yhn" customClass="ElectricityWaterCutsTableViewController" customModule="electricitywatercuts" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,17 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="azF-hQ-zD8">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="bGi-Vq-Yhn" id="phA-wb-DLe"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CutsTableViewCell" rowHeight="93" id="arn-5j-9EK" customClass="CutsTableViewCell" customModule="electricitywatercuts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="375" height="93"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="arn-5j-9EK" id="LGb-yu-1Yb">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
@@ -98,8 +90,8 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Swipe Here" id="zcx-ws-ENp" userLabel="Swipe Here">
-                        <barButtonItem key="leftBarButtonItem" title="Left Menu" id="4gp-YK-QKx">
+                    <navigationItem key="navigationItem" id="zcx-ws-ENp" userLabel="Swipe Here">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="4gp-YK-QKx">
                             <connections>
                                 <action selector="sideMenuOnClick:" destination="bGi-Vq-Yhn" id="1Cd-pJ-G4m"/>
                                 <segue destination="BAf-jD-5fj" kind="presentation" id="8rC-x8-KmT"/>
@@ -108,7 +100,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchBar" destination="azF-hQ-zD8" id="QT0-0o-eNc"/>
                         <outlet property="searchDisplayController" destination="Bhy-0N-nFC" id="4k5-qG-80M"/>
                         <outlet property="slideMenuButton" destination="4gp-YK-QKx" id="AXX-eC-Dsq"/>
                     </connections>
@@ -117,7 +108,6 @@
                 <searchDisplayController id="Bhy-0N-nFC">
                     <connections>
                         <outlet property="delegate" destination="bGi-Vq-Yhn" id="Nui-od-Zbk"/>
-                        <outlet property="searchBar" destination="azF-hQ-zD8" id="anG-FT-uF2"/>
                         <outlet property="searchContentsController" destination="bGi-Vq-Yhn" id="dp7-Ad-Mxs"/>
                         <outlet property="searchResultsDataSource" destination="bGi-Vq-Yhn" id="glO-dD-i5a"/>
                         <outlet property="searchResultsDelegate" destination="bGi-Vq-Yhn" id="Qfh-7T-fxc"/>
@@ -245,7 +235,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Ji0-ve-IGx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7pO-JH-pJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="zxZ-gB-3Gl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vj2-Mx-bZL">
@@ -257,6 +246,7 @@
                         <segue destination="bGi-Vq-Yhn" kind="relationship" relationship="rootViewController" id="qa2-3v-qRs"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7pO-JH-pJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-746.39999999999998" y="-502.39880059970017"/>
         </scene>
