@@ -41,12 +41,17 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
                 
         // Set up a cool background image for demo purposes
-        SideMenuManager.default.menuAnimationBackgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+        // SideMenuManager.default.menuAnimationBackgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         
-        SideMenuManager.default.menuBlurEffectStyle = UIBlurEffectStyle.extraLight
-        // SideMenuManager.default.menuShadowOpacity = 1
+        //SideMenuManager.default.menuBlurEffectStyle = UIBlurEffectStyle.extraLight
+        SideMenuManager.default.menuShadowOpacity = 1
         
         SideMenuManager.default.menuPresentMode = SideMenuManager.MenuPresentMode.menuSlideIn
+        
+        SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuWidth = view.frame.width * 0.75
+        
+        SideMenuManager.default.menuAnimationTransformScaleFactor = 0.95
         SideMenuManager.default.menuAnimationFadeStrength = 0.5
     }
 
