@@ -6,7 +6,7 @@
   Copyright © 2018 nils. All rights reserved.
 */
 
-"app_name" = "Water&amp;Power Outage";
+"app_name" = "Water&Power Outage";
 "action_settings" = "Settings";
 "action_search" = "Search";
 "menu_update" = "Update";
@@ -32,6 +32,8 @@
 "cuts_lang_header" = "LANGUAGE";
 "cuts_lang" = "Application language";
 "cuts_lang_sum" = "Select language.";
+"cuts_lang_tr" = "Turkish";
+"cuts_lang_en" = "English";
 "water_label" = "Water";
 "electricity_label" = "Electricity";
 "share" = "Share";
@@ -49,3 +51,4 @@
 "cuts_app_remind_btn" = "Remind me later";
 "cuts_app_already_btn" = "Already have";
 "no_cuts_text" = "Loading progress continues or there are no new cuts to be listed.";
+"navigation_back" = "Back";

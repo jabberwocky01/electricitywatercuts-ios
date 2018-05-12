@@ -55,6 +55,12 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         SideMenuManager.default.menuAnimationFadeStrength = 0.5
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "navigation_back")
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+    }
+    
     fileprivate func setUpSearchBar() {
         
         // Setup the Search Controller
@@ -64,7 +70,6 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         searchController.hidesNavigationBarDuringPresentation = false
         // self.definesPresentationContext = false
         
-        searchController.searchBar.placeholder = CutsHelper.localizedText(language: "tr", key: "action_search")
         // navigationItem.searchController = searchController
         
         // searchController.searchBar.sizeToFit()
@@ -83,9 +88,6 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         setUpSideMenu()
         setUpSearchBar()
         
-        // localization
-        slideMenuButton.title = CutsHelper.localizedText(language: "tr", key: "action_settings")
-        
         // filteredCuts = cutsUpdateHelper.cutsForNotification!
         
         // Uncomment the following line to preserve selection between presentations
@@ -93,6 +95,14 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // localization
+        slideMenuButton.title = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "action_settings")
+        searchController.searchBar.placeholder = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "action_search")
     }
 
     override func didReceiveMemoryWarning() {

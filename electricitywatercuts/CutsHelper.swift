@@ -71,4 +71,8 @@ class CutsHelper {
         return localizedText ?? key
     }
     
+    static func getLocaleForApp() -> String {
+        return UserDefaults.standard.string(forKey: CutsConstants.PREF_LANG) ?? "tr"
+    }
+    
 }

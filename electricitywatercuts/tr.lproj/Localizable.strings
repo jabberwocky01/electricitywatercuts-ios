@@ -32,6 +32,8 @@
 "cuts_lang_header" = "DİL";
 "cuts_lang" = "Uygulama dili seçimi";
 "cuts_lang_sum" = "Seçim yapınız.";
+"cuts_lang_tr" = "Türkçe";
+"cuts_lang_en" = "İngilizce";
 "water_label" = "Su";
 "electricity_label" = "Elektrik";
 "share" = "Paylaş";
@@ -49,6 +51,7 @@
 "cuts_app_remind_btn" = "Daha sonra hatırlat";
 "cuts_app_already_btn" = "Önceden puanlandı";
 "no_cuts_text" = "Yükleme işlemi devam etmektedir veya görüntülenecek yeni bir kesinti bulunmamaktadır.";
+"navigation_back" = "Geri";
 
 // Label for the "Done" button on the far left of action mode toolbars.
 "abc_action_mode_done" = "Tamam";

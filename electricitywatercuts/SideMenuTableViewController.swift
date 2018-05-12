@@ -19,8 +19,16 @@ import SideMenu
 
 class SideMenuTableViewController: UITableViewController {
     
+    @IBOutlet weak var iconLabel: UILabel!
+    
+    @objc func tapFunction(sender:UITapGestureRecognizer) {
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        iconLabel.text = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "app_name")
         
         // refresh cell blur effect in case it changed
         tableView.reloadData()

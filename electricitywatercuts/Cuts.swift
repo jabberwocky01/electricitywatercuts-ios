@@ -50,7 +50,7 @@ class Cuts {
     }
     
     func getPlainText() -> String {
-        let language = "tr"
+        let language = CutsHelper.getLocaleForApp()
         var plainText:String = CutsHelper.localizedText(language: language, key: "water_cut_label")
         if ("e" == type) {
             plainText = CutsHelper.localizedText(language: language, key: "electricity_cut_label")
