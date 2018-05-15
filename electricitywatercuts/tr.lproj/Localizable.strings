@@ -23,6 +23,10 @@
 "cuts_range_all" = "Tüm yüklenmiş (max 1 aylık)";
 "cuts_refresh_header" = "GÜNCELLEME";
 "cuts_refresh_freq" = "Kesinti güncelleme sıklığı";
+"cuts_refresh_never" = "Hiçbir zaman";
+"cuts_refresh_hourly" = "Saatte bir";
+"cuts_refresh_three_hours" = "3 saatte bir";
+"cuts_refresh_six_hours" = "6 saatte bir";
 "cuts_refresh_freq_sum" = "Kesintilerin olarak güncelleneceği aralığı seçmek için tıklayınız.";
 "cuts_order_header" = "SIRALAMA";
 "cuts_order_criteria_option" = "Kesintilerin listelenme kriteri";

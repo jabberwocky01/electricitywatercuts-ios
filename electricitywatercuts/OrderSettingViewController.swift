@@ -41,13 +41,13 @@ class OrderSettingViewController: UITableViewController, UIPickerViewDelegate, U
         orderPicker.delegate = self
         orderPicker.dataSource = self
         
-        if "start" == CutsHelper.getSelectedOrderCriteriaChoice() {
+        if orderCriteriaPickerDataKeys[0] == CutsHelper.getSelectedOrderCriteriaChoice() {
             orderCriteriaPicker.selectRow(0, inComponent: 0, animated: true)
         } else {
             orderCriteriaPicker.selectRow(1, inComponent: 0, animated: true)
         }
         
-        if "asc" == CutsHelper.getSelectedOrderCriteriaChoice() {
+        if orderPickerDataKeys[0] == CutsHelper.getSelectedOrderCriteriaChoice() {
             orderPicker.selectRow(0, inComponent: 0, animated: true)
         } else {
             orderPicker.selectRow(1, inComponent: 0, animated: true)
@@ -144,12 +144,8 @@ class OrderSettingViewController: UITableViewController, UIPickerViewDelegate, U
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == orderCriteriaPicker {
             UserDefaults.standard.set(orderCriteriaPickerDataKeys[row], forKey: CutsConstants.SETTING_ORDER_CRITERIA)
-            //update language in label
-            setLanguageInOrderCriteriaLabel()
         } else if pickerView == orderPicker{
             UserDefaults.standard.set(orderPickerDataKeys[row], forKey: CutsConstants.SETTING_ORDER)
-            //update language in label
-            setLanguageInOrderLabel()
         }
     }
     

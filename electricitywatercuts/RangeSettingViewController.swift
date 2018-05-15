@@ -28,7 +28,7 @@ class RangeSettingViewController: UITableViewController, UIPickerViewDelegate, U
         rangePicker.delegate = self
         rangePicker.dataSource = self
         
-        if "0" == CutsHelper.getSelectedListChoice() {
+        if pickerDataKeys[0] == CutsHelper.getSelectedListChoice() {
             rangePicker.selectRow(0, inComponent: 0, animated: true)
         } else {
             rangePicker.selectRow(1, inComponent: 0, animated: true)
@@ -94,8 +94,6 @@ class RangeSettingViewController: UITableViewController, UIPickerViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         UserDefaults.standard.set(pickerDataKeys[row], forKey: CutsConstants.SETTING_RANGE)
-        //update language in label
-        setLanguageInLabel()
     }
     
     fileprivate func setLanguageInLabel() {

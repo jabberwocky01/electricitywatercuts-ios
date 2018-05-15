@@ -87,4 +87,11 @@ class CutsHelper {
         return UserDefaults.standard.string(forKey: CutsConstants.SETTING_ORDER) ?? "desc"
     }
     
+    static func getSelectedFrequencyChoice() -> String {
+        return UserDefaults.standard.string(forKey: CutsConstants.SETTING_FREQ) ?? "1"
+    }
+    
+    static func getSavedSearchString() -> String {
+        return UserDefaults.standard.string(forKey: CutsConstants.SETTING_SEARCH_STR_OPTION) ?? ""
+    }
 }

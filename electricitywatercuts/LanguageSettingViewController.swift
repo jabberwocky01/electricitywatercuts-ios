@@ -28,7 +28,7 @@ class LanguageSettingViewController: UITableViewController, UIPickerViewDelegate
         languagePicker.delegate = self
         languagePicker.dataSource = self
         
-        if "tr" == CutsHelper.getLocaleForApp() {
+        if pickerDataKeys[0] == CutsHelper.getLocaleForApp() {
             languagePicker.selectRow(0, inComponent: 0, animated: true)
         } else {
             languagePicker.selectRow(1, inComponent: 0, animated: true)

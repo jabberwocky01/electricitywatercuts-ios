@@ -23,6 +23,10 @@
 "cuts_range_all" = "All loaded (max 1 month old)";
 "cuts_refresh_header" = "REFRESH";
 "cuts_refresh_freq" = "Outage refresh frequency";
+"cuts_refresh_never" = "Never";
+"cuts_refresh_hourly" = "Once in an hour";
+"cuts_refresh_three_hours" = "Once in 3 hours";
+"cuts_refresh_six_hours" = "Once in 6 hours";
 "cuts_refresh_freq_sum" = "Click to change the outage refresh frequency.";
 "cuts_order_header" = "ORDER";
 "cuts_order_criteria_option" = "Outage order criteria";
