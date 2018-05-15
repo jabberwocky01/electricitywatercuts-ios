@@ -37,7 +37,7 @@
 "cuts_order_asc" = "Artan";
 "cuts_order_desc" = "Azalan";
 "cuts_order_option_sum" = "Kesintilerin listelenme sırasını değiştirmek için seçim yapınız.";
-"cuts_search_str" = "Aranacak kelimeler";
+"cuts_search_str" = "Aranacak kelimeler (virgülle ayrılarak)";
 "cuts_search_str_sum" = "Kesintilerde aranacak kelimeleri (Türkçe karakter kullanarak ve birden fazla ise virgülle ayırarak) giriniz.";
 "cuts_lang_header" = "DİL";
 "cuts_lang" = "Uygulama dili seçimi";

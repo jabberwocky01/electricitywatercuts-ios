@@ -37,7 +37,7 @@
 "cuts_order_asc" = "Ascending";
 "cuts_order_desc" = "Descending";
 "cuts_order_option_sum" = "Choose the listing order for the outages.";
-"cuts_search_str" = "Search Keywords";
+"cuts_search_str" = "Search Keywords (comma separated)";
 "cuts_search_str_sum" = "Type in the keywords to be searched in the outages (using Turkish characters, separated by commas).";
 "cuts_lang_header" = "LANGUAGE";
 "cuts_lang" = "Application language";
