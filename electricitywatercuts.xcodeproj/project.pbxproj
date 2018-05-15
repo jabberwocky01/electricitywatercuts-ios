@@ -23,6 +23,8 @@
 		9583E09620948CB900B6362C /* CutsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E09520948CB900B6362C /* CutsDelegate.swift */; };
 		9583E09820948FE000B6362C /* CutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E09720948FE000B6362C /* CutsViewController.swift */; };
 		95A0ED77209749FE00539083 /* CutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A0ED76209749FE00539083 /* CutsProvider.swift */; };
+		95BBEE5D20A9E9600039A9AB /* RangeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BBEE5C20A9E9600039A9AB /* RangeSettingViewController.swift */; };
+		95CE4E1420A9F9F80011AE7F /* OrderSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE4E1320A9F9F80011AE7F /* OrderSettingViewController.swift */; };
 		95E87C562094DBF100F62B97 /* CutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E87C552094DBF100F62B97 /* CutsTableViewCell.swift */; };
 		C472756C914A032C6FE2E5F5 /* Pods_electricitywatercuts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BCF771CE91ED1285C9F99A /* Pods_electricitywatercuts.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,8 @@
 		9583E09520948CB900B6362C /* CutsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsDelegate.swift; sourceTree = "<group>"; };
 		9583E09720948FE000B6362C /* CutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsViewController.swift; sourceTree = "<group>"; };
 		95A0ED76209749FE00539083 /* CutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsProvider.swift; sourceTree = "<group>"; };
+		95BBEE5C20A9E9600039A9AB /* RangeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSettingViewController.swift; sourceTree = "<group>"; };
+		95CE4E1320A9F9F80011AE7F /* OrderSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSettingViewController.swift; sourceTree = "<group>"; };
 		95E87C552094DBF100F62B97 /* CutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsTableViewCell.swift; sourceTree = "<group>"; };
 		A5BCF771CE91ED1285C9F99A /* Pods_electricitywatercuts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_electricitywatercuts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84C0E985C24B70830127C7A /* Pods-electricitywatercuts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-electricitywatercuts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-electricitywatercuts/Pods-electricitywatercuts.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 				95A0ED76209749FE00539083 /* CutsProvider.swift */,
 				950AAD4D20A20593003E44EF /* SideMenuTableViewController.swift */,
 				950AAD4F20A211EE003E44EF /* LanguageSettingViewController.swift */,
+				95BBEE5C20A9E9600039A9AB /* RangeSettingViewController.swift */,
+				95CE4E1320A9F9F80011AE7F /* OrderSettingViewController.swift */,
 			);
 			path = electricitywatercuts;
 			sourceTree = "<group>";
@@ -253,8 +259,10 @@
 				951A7E482090D391002E6F87 /* CutsHelper.swift in Sources */,
 				950AAD4E20A20593003E44EF /* SideMenuTableViewController.swift in Sources */,
 				9517F779208F7D94000C0A0B /* ElectricityWaterCutsTableViewController.swift in Sources */,
+				95CE4E1420A9F9F80011AE7F /* OrderSettingViewController.swift in Sources */,
 				9517F77D208FA0A5000C0A0B /* CutsConstants.swift in Sources */,
 				9517F749208F7B84000C0A0B /* AppDelegate.swift in Sources */,
+				95BBEE5D20A9E9600039A9AB /* RangeSettingViewController.swift in Sources */,
 				9583E09620948CB900B6362C /* CutsDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

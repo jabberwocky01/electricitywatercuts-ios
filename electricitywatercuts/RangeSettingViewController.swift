@@ -1,17 +1,17 @@
 //
-//  LanguageSettingViewController.swift
+//  RangeSettingViewController.swift
 //  electricitywatercuts
 //
-//  Created by nils on 8.05.2018.
+//  Created by nils on 14.05.2018.
 //  Copyright © 2018 nils. All rights reserved.
 //
 
 import UIKit
 
-class LanguageSettingViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class RangeSettingViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var languagePickLabel: UILabel!
-    @IBOutlet weak var languagePicker: UIPickerView!
+    @IBOutlet weak var rangePickLabel: UILabel!
+    @IBOutlet weak var rangePicker: UIPickerView!
     var pickerData: [String] = [String]()
     var pickerDataKeys: [String] = [String]()
     
@@ -19,19 +19,19 @@ class LanguageSettingViewController: UITableViewController, UIPickerViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         // Input data into the Array:
-        pickerData = [CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_lang_tr"), CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_lang_en")]
-        pickerDataKeys = ["tr", "Base"]
+        pickerData = [CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_range_latest"), CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_range_all")]
+        pickerDataKeys = ["0", "1"]
         
         // Connect data:
-        languagePicker.delegate = self
-        languagePicker.dataSource = self
+        rangePicker.delegate = self
+        rangePicker.dataSource = self
         
-        if "tr" == CutsHelper.getLocaleForApp() {
-            languagePicker.selectRow(0, inComponent: 0, animated: true)
+        if "0" == CutsHelper.getSelectedListChoice() {
+            rangePicker.selectRow(0, inComponent: 0, animated: true)
         } else {
-            languagePicker.selectRow(1, inComponent: 0, animated: true)
+            rangePicker.selectRow(1, inComponent: 0, animated: true)
         }
         
         setLanguageInLabel()
@@ -93,13 +93,13 @@ class LanguageSettingViewController: UITableViewController, UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        UserDefaults.standard.set(pickerDataKeys[row], forKey: CutsConstants.SETTING_LANG)
+        UserDefaults.standard.set(pickerDataKeys[row], forKey: CutsConstants.SETTING_RANGE)
         //update language in label
         setLanguageInLabel()
     }
     
     fileprivate func setLanguageInLabel() {
-        languagePickLabel.text = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_lang")
+        rangePickLabel.text = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_range")
     }
 
 }

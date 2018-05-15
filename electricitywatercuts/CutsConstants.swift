@@ -23,6 +23,7 @@ struct CutsConstants {
     static let CUT_TYPE_ELECTRICITY_IMAGE = "electricity"
     static let CUT_TYPE_WATER_IMAGE = "water"
     
+    /*
     static let PREF_RANGE = "pref_cuts_range_option"
     static let PREF_FREQ = "pref_cuts_freq_option"
     static let PREF_ORDER = "pref_cuts_order_option"
@@ -30,6 +31,7 @@ struct CutsConstants {
     static let PREF_ORDER_CRITERIA = "pref_cuts_order_criteria_option"
     static let PREF_SEARCH_STR_OPTION = "pref_cuts_search_str"
     static let PREF_LANG = "pref_cuts_lang_option"
+    */
     
     static let SETTING_RANGE = "PREF_RANGE"
     static let SETTING_FREQ = "PREF_FREQ"

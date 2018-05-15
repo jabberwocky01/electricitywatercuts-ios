@@ -72,7 +72,19 @@ class CutsHelper {
     }
     
     static func getLocaleForApp() -> String {
-        return UserDefaults.standard.string(forKey: CutsConstants.PREF_LANG) ?? "tr"
+        return UserDefaults.standard.string(forKey: CutsConstants.SETTING_LANG) ?? "tr"
+    }
+    
+    static func getSelectedListChoice() -> String {
+        return UserDefaults.standard.string(forKey: CutsConstants.SETTING_RANGE) ?? "0"
+    }
+    
+    static func getSelectedOrderCriteriaChoice() -> String {
+        return UserDefaults.standard.string(forKey: CutsConstants.SETTING_ORDER_CRITERIA) ?? "end"
+    }
+    
+    static func getSelectedOrderChoice() -> String {
+        return UserDefaults.standard.string(forKey: CutsConstants.SETTING_ORDER) ?? "desc"
     }
     
 }

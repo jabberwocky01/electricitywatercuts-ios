@@ -60,8 +60,7 @@ class CutsUpdateService {
         
         let locale: Locale = Locale(identifier: "tr-TR")
         let formatter: DateFormatter = DateFormatter()
-        let paramDateFormat = DateFormatter.dateFormat(fromTemplate: CutsConstants.yyyyMMdd, options: 0, locale: Locale(identifier: "tr-TR"))
-        formatter.dateFormat = paramDateFormat
+        let paramDateFormat = DateFormatter.dateFormat(fromTemplate: CutsConstants.yyyyMMdd, options: 0, locale: nil)
         formatter.locale = locale
         
         let cutDateFormat = DateFormatter.dateFormat(fromTemplate: CutsConstants.ddMMyyyy, options: 0, locale: Locale(identifier: "tr-TR"))
@@ -74,6 +73,7 @@ class CutsUpdateService {
         // look up for 5 days
         for _ in 0..<5 {
             for type in types {
+                formatter.dateFormat = paramDateFormat
                 let formattedDate = formatter.string(from: date)
                 let formattedUrl : String = String(format: link, "0", type, formattedDate)
                 let url = URL(string: formattedUrl)
