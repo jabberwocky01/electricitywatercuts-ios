@@ -14,10 +14,38 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CutsProvider.init():CutsProvider.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CUTS_DATABASE_INSERT">
+            </PersistentString>
+            <PersistentString
+               value = "CUTS_DATABASE_CREATE">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static CutsHelper.getSelectedOrderCriteriaChoice():CutsHelper.swift">
          <PersistentStrings>
             <PersistentString
                value = "UserDefaults.standard.string(forKey: CutsConstants.SETTING_ORDER_CRITERIA)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CutsProvider.insert(cutsList:):CutsProvider.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cut.getSearchString()">
+            </PersistentString>
+            <PersistentString
+               value = "existingCuts[0].id">
+            </PersistentString>
+            <PersistentString
+               value = "CUTS_DATABASE_INSERT">
+            </PersistentString>
+            <PersistentString
+               value = "db">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

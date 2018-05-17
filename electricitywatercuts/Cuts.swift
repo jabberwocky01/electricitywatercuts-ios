@@ -9,6 +9,7 @@
 import Foundation
 
 class Cuts {
+    var id: Int?
     var operatorName: String?
     var startDate: String?
     var endDate: String?
@@ -17,7 +18,8 @@ class Cuts {
     var detail: String?
     var type: String?
     
-    init(operatorName: String = "", startDate: String = "", endDate: String = "", location: String = "", reason: String = "", detail: String = "", type: String = "") {
+    init(id: Int? = nil, operatorName: String = "", startDate: String = "", endDate: String = "", location: String = "", reason: String = "", detail: String = "", type: String = "") {
+        self.id = id
         self.operatorName = operatorName
         self.startDate = startDate
         self.endDate = endDate

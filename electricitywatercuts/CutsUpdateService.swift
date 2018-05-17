@@ -11,7 +11,8 @@ import SwiftSoup
 
 class CutsUpdateService {
     
-    weak var delegate: CutsDelegate?
+    // weak var delegate: CutsDelegate?
+    private let cutsProvider = CutsProvider()
     
     var cutsForNotification: [Cuts]?
     
@@ -19,10 +20,24 @@ class CutsUpdateService {
         self.cutsForNotification = [Cuts]()
     }
     
+    
+    func updateCutsAsPrevious() {
+        // update as "previous"
+        let conditionArgs = String(describing: CutsProvider.CutsRecord.is_current) + "='T' "
+        let value = String(describing: CutsProvider.CutsRecord.is_current) + "='F' "
+        cutsProvider.update(condition: .SEARCH, value: value, conditionArgs: conditionArgs)
+    }
+    
+    func addNewCuts(cutsList: [Cuts]) {
+        cutsProvider.insert(cutsList: cutsList)
+    }
+    
     func refreshCuts(notificationFlag: Bool) {
+        // delegate?.didReceiveRefreshCuts(notificationFlag: notificationFlag)
+        
         let urls: [String] = CutsConstants.CUTS_LINK_LIST
         
-        // updateCutsAsPrevious();
+        updateCutsAsPrevious();
         
         var cutsList = [Cuts]()
         for i in 0..<urls.count {
@@ -40,7 +55,7 @@ class CutsUpdateService {
             }
         }
     
-        // addNewCuts(cutsList);
+        addNewCuts(cutsList: cutsList);
         
         if (notificationFlag) {
             // Trigger a notification.
@@ -48,8 +63,6 @@ class CutsUpdateService {
         }
         
         cutsForNotification = cutsList
-        
-        delegate?.didReceiveRefreshCuts(notificationFlag: notificationFlag)
         
         // return cutsList
     

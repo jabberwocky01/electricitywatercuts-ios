@@ -81,8 +81,10 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cutsUpdateHelper.delegate = self
-        // cutsProvider.createTable()
+        // cutsUpdateHelper.delegate = self
+        // cutsProvider.delegate = self
+        
+        cutsProvider.createTable()
         cutsUpdateHelper.refreshCuts(notificationFlag: false)
         
         setUpSideMenu()
