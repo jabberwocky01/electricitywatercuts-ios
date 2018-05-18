@@ -21,8 +21,6 @@
 		951A7E482090D391002E6F87 /* CutsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A7E472090D391002E6F87 /* CutsHelper.swift */; };
 		951A7E4A2090EA21002E6F87 /* CutsUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A7E492090EA21002E6F87 /* CutsUpdateService.swift */; };
 		953D552D20AB52740047569F /* FrequencyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953D552C20AB52740047569F /* FrequencyTableViewController.swift */; };
-		9583E09620948CB900B6362C /* CutsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E09520948CB900B6362C /* CutsDelegate.swift */; };
-		9583E09820948FE000B6362C /* CutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583E09720948FE000B6362C /* CutsViewController.swift */; };
 		95A0ED77209749FE00539083 /* CutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A0ED76209749FE00539083 /* CutsProvider.swift */; };
 		95BBEE5D20A9E9600039A9AB /* RangeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BBEE5C20A9E9600039A9AB /* RangeSettingViewController.swift */; };
 		95CE4E1420A9F9F80011AE7F /* OrderSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE4E1320A9F9F80011AE7F /* OrderSettingViewController.swift */; };
@@ -51,8 +49,6 @@
 		951A7E472090D391002E6F87 /* CutsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsHelper.swift; sourceTree = "<group>"; };
 		951A7E492090EA21002E6F87 /* CutsUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsUpdateService.swift; sourceTree = "<group>"; };
 		953D552C20AB52740047569F /* FrequencyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyTableViewController.swift; sourceTree = "<group>"; };
-		9583E09520948CB900B6362C /* CutsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsDelegate.swift; sourceTree = "<group>"; };
-		9583E09720948FE000B6362C /* CutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsViewController.swift; sourceTree = "<group>"; };
 		95A0ED76209749FE00539083 /* CutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsProvider.swift; sourceTree = "<group>"; };
 		95BBEE5C20A9E9600039A9AB /* RangeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSettingViewController.swift; sourceTree = "<group>"; };
 		95CE4E1320A9F9F80011AE7F /* OrderSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSettingViewController.swift; sourceTree = "<group>"; };
@@ -115,8 +111,6 @@
 				9517F77C208FA0A5000C0A0B /* CutsConstants.swift */,
 				951A7E472090D391002E6F87 /* CutsHelper.swift */,
 				951A7E492090EA21002E6F87 /* CutsUpdateService.swift */,
-				9583E09520948CB900B6362C /* CutsDelegate.swift */,
-				9583E09720948FE000B6362C /* CutsViewController.swift */,
 				95E87C552094DBF100F62B97 /* CutsTableViewCell.swift */,
 				95A0ED76209749FE00539083 /* CutsProvider.swift */,
 				950AAD4D20A20593003E44EF /* SideMenuTableViewController.swift */,
@@ -257,7 +251,6 @@
 				950AAD5020A211EE003E44EF /* LanguageSettingViewController.swift in Sources */,
 				9517F74B208F7B84000C0A0B /* ViewController.swift in Sources */,
 				95A0ED77209749FE00539083 /* CutsProvider.swift in Sources */,
-				9583E09820948FE000B6362C /* CutsViewController.swift in Sources */,
 				951A7E4A2090EA21002E6F87 /* CutsUpdateService.swift in Sources */,
 				951A7E482090D391002E6F87 /* CutsHelper.swift in Sources */,
 				950AAD4E20A20593003E44EF /* SideMenuTableViewController.swift in Sources */,
@@ -267,7 +260,6 @@
 				9517F749208F7B84000C0A0B /* AppDelegate.swift in Sources */,
 				95BBEE5D20A9E9600039A9AB /* RangeSettingViewController.swift in Sources */,
 				953D552D20AB52740047569F /* FrequencyTableViewController.swift in Sources */,
-				9583E09620948CB900B6362C /* CutsDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
