@@ -20,6 +20,10 @@ import SideMenu
 class SideMenuTableViewController: UITableViewController {
     
     @IBOutlet weak var iconLabel: UILabel!
+    @IBOutlet weak var rangeLabel: UIButton!
+    @IBOutlet weak var frequencyLabel: UIButton!
+    @IBOutlet weak var orderLabel: UIButton!
+    @IBOutlet weak var languageLabel: UIButton!
     
     @objc func tapFunction(sender:UITapGestureRecognizer) {
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
@@ -29,6 +33,10 @@ class SideMenuTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         iconLabel.text = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "app_name")
+        rangeLabel.setTitle(CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_range"), for: .normal)
+        frequencyLabel.setTitle(CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_refresh_freq"), for: .normal)
+        orderLabel.setTitle(CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_order_option"), for: .normal)
+        languageLabel.setTitle(CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_lang"), for: .normal)
         
         // refresh cell blur effect in case it changed
         tableView.reloadData()

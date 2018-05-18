@@ -147,7 +147,7 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         }
         cell.operatorInfo?.text = cut.operatorName
         cell.durationInfo?.text = (cut.startDate ?? "") + " - " + (cut.endDate ?? "")
-        cell.detailedInfo?.text = cut.location
+        cell.detailedInfo?.text = (cut.reason ?? "") + "\n" + (cut.location ?? "")
         // cell.detailedInfo?.borderStyle = .none
         let imageName = CutsConstants.CUT_TYPE_ELECTRICITY == cut.type ? CutsConstants.CUT_TYPE_ELECTRICITY_IMAGE : CutsConstants.CUT_TYPE_WATER_IMAGE
         cell.cutImage?.image = UIImage(named: imageName)
@@ -157,7 +157,7 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
     {
-        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share" , handler: { (action:UITableViewRowAction, indexPath:IndexPath) -> Void in
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "share") , handler: { (action:UITableViewRowAction, indexPath:IndexPath) -> Void in
             
             let cut = self.cutsUpdateHelper.cutListToShow![indexPath.row]
             let shareContent = cut.getPlainText()
