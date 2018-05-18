@@ -28,7 +28,7 @@ class RangeSettingViewController: UITableViewController, UIPickerViewDelegate, U
         rangePicker.delegate = self
         rangePicker.dataSource = self
         
-        if pickerDataKeys[0] == CutsHelper.getSelectedListChoice() {
+        if pickerDataKeys[0] == CutsHelper.getSelectedRangeChoice() {
             rangePicker.selectRow(0, inComponent: 0, animated: true)
         } else {
             rangePicker.selectRow(1, inComponent: 0, animated: true)

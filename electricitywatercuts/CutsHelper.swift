@@ -75,7 +75,7 @@ class CutsHelper {
         return UserDefaults.standard.string(forKey: CutsConstants.SETTING_LANG) ?? "tr"
     }
     
-    static func getSelectedListChoice() -> String {
+    static func getSelectedRangeChoice() -> String {
         return UserDefaults.standard.string(forKey: CutsConstants.SETTING_RANGE) ?? "0"
     }
     

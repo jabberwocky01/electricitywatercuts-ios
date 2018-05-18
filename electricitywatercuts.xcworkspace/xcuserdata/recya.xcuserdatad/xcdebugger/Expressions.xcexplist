@@ -33,19 +33,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CutsProvider.insert(cutsList:):CutsProvider.swift">
+         contextName = "CutsProvider.query(condition:conditionColumn:conditionArg:sortOrderBy:sortOrder:):CutsProvider.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cut.getSearchString()">
+               value = "Int32(CutsRecord.location.rawValue)">
             </PersistentString>
             <PersistentString
-               value = "existingCuts[0].id">
+               value = "Int32(CutsRecord.reason.rawValue)">
             </PersistentString>
             <PersistentString
-               value = "CUTS_DATABASE_INSERT">
-            </PersistentString>
-            <PersistentString
-               value = "db">
+               value = "Int32(CutsRecord.operator_name.rawValue)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

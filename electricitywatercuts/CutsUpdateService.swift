@@ -14,22 +14,49 @@ class CutsUpdateService {
     // weak var delegate: CutsDelegate?
     private let cutsProvider = CutsProvider()
     
-    var cutsForNotification: [Cuts]?
+    var cutListToShow: [Cuts]?
     
     init() {
-        self.cutsForNotification = [Cuts]()
+        self.cutListToShow = [Cuts]()
     }
     
     
     func updateCutsAsPrevious() {
         // update as "previous"
-        let conditionArgs = String(describing: CutsProvider.CutsRecord.is_current) + "='T' "
         let value = String(describing: CutsProvider.CutsRecord.is_current) + "='F' "
-        cutsProvider.update(condition: .SEARCH, value: value, conditionArgs: conditionArgs)
+        cutsProvider.update(condition: .EQUALS, value: value, conditionColumn: .is_current, conditionArg: "'T'")
     }
     
     func addNewCuts(cutsList: [Cuts]) {
         cutsProvider.insert(cutsList: cutsList)
+    }
+    
+    func prepareCutListToShow() {
+        refreshCuts(notificationFlag: false)
+        
+        var conditionColumn: CutsProvider.CutsRecord? = nil
+        var conditionArg: String? = nil
+        
+        let range = CutsHelper.getSelectedRangeChoice()
+        if ("0" == range) {
+            conditionColumn = CutsProvider.CutsRecord.is_current
+            conditionArg = "T"
+        }
+        
+        let orderCriteriaOption = CutsHelper.getSelectedOrderCriteriaChoice()
+        let orderOption = CutsHelper.getSelectedOrderChoice()
+            
+        var sortOrderBy = CutsProvider.CutsRecord.end_date;
+        if("start" == orderCriteriaOption) {
+            sortOrderBy = CutsProvider.CutsRecord.start_date
+        }
+        var sortOrder = " DESC";
+        if("asc" == orderOption) {
+            sortOrder = " ASC";
+        }
+        
+        cutListToShow = cutsProvider.query(condition: .EQUALS, conditionColumn: conditionColumn, conditionArg: conditionArg, sortOrderBy: sortOrderBy, sortOrder: sortOrder)
+
     }
     
     func refreshCuts(notificationFlag: Bool) {
@@ -61,9 +88,7 @@ class CutsUpdateService {
             // Trigger a notification.
             // broadcastNotification();
         }
-        
-        cutsForNotification = cutsList
-        
+    
         // return cutsList
     
     }

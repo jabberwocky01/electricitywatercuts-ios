@@ -85,7 +85,8 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         // cutsProvider.delegate = self
         
         cutsProvider.createTable()
-        cutsUpdateHelper.refreshCuts(notificationFlag: false)
+        // cutsProvider.upgradeTable()
+        cutsUpdateHelper.prepareCutListToShow()
         
         setUpSideMenu()
         setUpSearchBar()
@@ -124,7 +125,7 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         if isFiltering() {
             return filteredCuts.count
         }
-        return cutsUpdateHelper.cutsForNotification!.count
+        return cutsUpdateHelper.cutListToShow!.count
     }
     
     func isFiltering() -> Bool {
@@ -142,7 +143,7 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         if isFiltering() {
             cut = filteredCuts[indexPath.row]
         } else {
-            cut = cutsUpdateHelper.cutsForNotification![indexPath.row]
+            cut = cutsUpdateHelper.cutListToShow![indexPath.row]
         }
         cell.operatorInfo?.text = cut.operatorName
         cell.durationInfo?.text = (cut.startDate ?? "") + " - " + (cut.endDate ?? "")
@@ -158,7 +159,7 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
     {
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share" , handler: { (action:UITableViewRowAction, indexPath:IndexPath) -> Void in
             
-            let cut = self.cutsUpdateHelper.cutsForNotification![indexPath.row]
+            let cut = self.cutsUpdateHelper.cutListToShow![indexPath.row]
             let shareContent = cut.getPlainText()
             let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
             self.present(activityViewController, animated: true, completion: {})
@@ -189,7 +190,7 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredCuts = self.cutsUpdateHelper.cutsForNotification!.filter({( cut : Cuts) -> Bool in
+        filteredCuts = self.cutsUpdateHelper.cutListToShow!.filter({( cut : Cuts) -> Bool in
             // return (cut.detail?.lowercased().contains(searchText.lowercased()))!
             return CutsHelper.compareCutsStr(str1: cut.getSearchString(), str2: searchText)
         })

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 extension ElectricityWaterCutsTableViewController: CutsDelegate {
     func createTable() {
         
@@ -18,3 +19,4 @@ extension ElectricityWaterCutsTableViewController: CutsDelegate {
     }
     
 }
+*/

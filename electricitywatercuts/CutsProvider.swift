@@ -11,6 +11,7 @@ import SQLite3
 
 class CutsProvider {
     
+    internal let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
     // weak var delegate: CutsDelegate?
     
     // Column Names
@@ -32,7 +33,7 @@ class CutsProvider {
     
     // Table Query Conditions
     enum CutsQueryCondition {
-        case CUTS_ID
+        case EQUALS
         case SEARCH
     }
     
@@ -67,8 +68,8 @@ class CutsProvider {
         CUTS_DATABASE_INSERT.append(" (" + String(describing: CutsRecord.operator_name))
         CUTS_DATABASE_INSERT.append(", " + String(describing: CutsRecord.start_date))
         CUTS_DATABASE_INSERT.append(", " + String(describing: CutsRecord.end_date))
-        CUTS_DATABASE_INSERT.append(", " + String(describing: CutsRecord.reason))
         CUTS_DATABASE_INSERT.append(", " + String(describing: CutsRecord.location))
+        CUTS_DATABASE_INSERT.append(", " + String(describing: CutsRecord.reason))
         CUTS_DATABASE_INSERT.append(", " + String(describing: CutsRecord.detail))
         CUTS_DATABASE_INSERT.append(", " + String(describing: CutsRecord.type))
         CUTS_DATABASE_INSERT.append(", " + String(describing: CutsRecord.search_text))
@@ -138,23 +139,23 @@ class CutsProvider {
             var existingCuts : [Cuts]
             // Construct a where clause to make sure we don't already have this cut in the provider.
             if !((cut.detail?.isEmpty)!) {
-                existingCuts = query(condition: CutsQueryCondition.SEARCH, value: cut.detail!, sort: "")
+                existingCuts = query(condition: CutsQueryCondition.SEARCH, conditionColumn: CutsRecord.detail, conditionArg: cut.detail!)
                 if !existingCuts.isEmpty {
                     // set previously inserted but still current cuts is_current = 'T', update as "current"
                     let value = String(describing: CutsProvider.CutsRecord.is_current) + "='T' "
-                    update(condition: CutsProvider.CutsQueryCondition.CUTS_ID, value: value, conditionArgs: String(existingCuts[0].id ?? 0))
+                    update(condition: CutsProvider.CutsQueryCondition.EQUALS, value: value, conditionColumn: ._id, conditionArg: String(existingCuts[0].id ?? 0))
                     continue
                 }
             }
-            
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.operator_name.rawValue), (cut.operatorName ?? ""), -1, nil)
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.start_date.rawValue), (cut.startDate ?? ""), -1, nil)
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.end_date.rawValue), (cut.endDate ?? ""), -1, nil)
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.location.rawValue), (cut.location ?? ""), -1, nil)
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.reason.rawValue), (cut.reason ?? ""), -1, nil)
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.detail.rawValue), (cut.detail ?? ""), -1, nil)
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.type.rawValue), (cut.type ?? ""), -1, nil)
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.search_text.rawValue), cut.getSearchString(), -1, nil)
+
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.operator_name.rawValue), (cut.operatorName ?? ""), -1, SQLITE_TRANSIENT)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.start_date.rawValue), (cut.startDate ?? ""), -1, SQLITE_TRANSIENT)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.end_date.rawValue), (cut.endDate ?? ""), -1, SQLITE_TRANSIENT)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.location.rawValue), (cut.location ?? ""), -1, SQLITE_TRANSIENT)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.reason.rawValue), (cut.reason ?? ""), -1, SQLITE_TRANSIENT)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.detail.rawValue), (cut.detail ?? ""), -1, SQLITE_TRANSIENT)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.type.rawValue), (cut.type ?? ""), -1, SQLITE_TRANSIENT)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.search_text.rawValue), cut.getSearchString(), -1, SQLITE_TRANSIENT)
 
             /* var searchText = (cut.operatorName ?? "")
             searchText.append(" " + (cut.location ?? ""))
@@ -163,16 +164,16 @@ class CutsProvider {
             
             let orderStartDate = CutsHelper.formatDate(dateStr: (cut.startDate ?? ""),
                                                        inputFormat: CutsConstants.ddMMyyyyHHmm, outputFormat: CutsConstants.yyyyMMddHHmmss);
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.order_start_date.rawValue), orderStartDate, -1, nil)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.order_start_date.rawValue), orderStartDate, -1, SQLITE_TRANSIENT)
 
             let orderEndDate = CutsHelper.formatDate(dateStr: (cut.endDate ?? ""),
                                                         inputFormat:CutsConstants.ddMMyyyyHHmm, outputFormat: CutsConstants.yyyyMMddHHmmss);
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.order_end_date.rawValue), orderEndDate, -1, nil)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.order_end_date.rawValue), orderEndDate, -1, SQLITE_TRANSIENT)
 
             let insertDate = formatter.string(from: Date())
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.insert_date.rawValue), insertDate, -1, nil)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.insert_date.rawValue), insertDate, -1, SQLITE_TRANSIENT)
 
-            sqlite3_bind_text(insertStatement, Int32(CutsRecord.is_current.rawValue), "T", -1, nil)
+            sqlite3_bind_text(insertStatement, Int32(CutsRecord.is_current.rawValue), "T", -1, SQLITE_TRANSIENT)
             
             //executing the query to insert values
             if sqlite3_step(insertStatement) != SQLITE_DONE {
@@ -194,40 +195,45 @@ class CutsProvider {
     }
  */
     
-    func query(condition: CutsQueryCondition, value: String, sort: String) -> [Cuts] {
+    func query(condition: CutsQueryCondition, conditionColumn: CutsRecord? = nil, conditionArg: String? = nil, sortOrderBy: CutsRecord? = nil, sortOrder: String? = nil) -> [Cuts] {
         let db = openDatabase()
         var cutsList = [Cuts]()
         
         var queryStatementString = "SELECT * FROM " + CutsConstants.CUTS_TABLE
-        switch condition {
-            case CutsQueryCondition.CUTS_ID:
-                queryStatementString.append(" WHERE " + String(describing: CutsRecord._id) + "=" + value)
-            case CutsQueryCondition.SEARCH:
-                queryStatementString.append(" WHERE " + String(describing: CutsRecord.detail) + " LIKE '%" + value + "%'")
-            default:
-                return cutsList
-            
+        if (conditionColumn != nil && conditionArg != nil) {
+            switch condition {
+                case CutsQueryCondition.EQUALS:
+                    queryStatementString.append(" WHERE " + String(describing: conditionColumn!) + "=" + conditionArg!)
+                case CutsQueryCondition.SEARCH:
+                    queryStatementString.append(" WHERE " + String(describing: conditionColumn!) + " LIKE '%" + conditionArg! + "%'")
+                default:
+                    return cutsList
+            }
         }
         
         // If no sort order is specified, sort by date / time
         var orderBy: String
-        if sort.isEmpty {
+        // TODO: NilS optional parameter
+        if sortOrderBy == nil {
             orderBy = String(describing: CutsRecord.order_end_date);
         } else {
-            orderBy = sort;
+            orderBy = String(describing: sortOrderBy!);
         }
         queryStatementString.append(" ORDER BY " + orderBy)
         
-        
+        if (sortOrder != nil) {
+            queryStatementString.append(sortOrder!)
+        }
+
         
         var queryStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) != SQLITE_OK {
-            print("error preparing insert")
+            print("error preparing query")
             return cutsList
         }
         
         while(sqlite3_step(queryStatement) == SQLITE_ROW){
-            let id = Int(sqlite3_column_int(queryStatement, Int32(CutsRecord._id.rawValue)))
+            let id = Int(sqlite3_column_int64(queryStatement, Int32(CutsRecord._id.rawValue)))
             let operatorName = String(cString: sqlite3_column_text(queryStatement, Int32(CutsRecord.operator_name.rawValue)))
             let startDate = String(cString: sqlite3_column_text(queryStatement, Int32(CutsRecord.start_date.rawValue)))
             let endDate = String(cString: sqlite3_column_text(queryStatement, Int32(CutsRecord.end_date.rawValue)))
@@ -248,7 +254,7 @@ class CutsProvider {
         var deleteStmtString = "DELETE FROM " + CutsConstants.CUTS_TABLE + " WHERE "
         
         switch condition {
-            case CutsQueryCondition.CUTS_ID:
+            case CutsQueryCondition.EQUALS:
                 deleteStmtString.append(CutsConstants.KEY_ID + "=" + conditionArgs)
             case CutsQueryCondition.SEARCH: //TODO: NilS
                 deleteStmtString.append(conditionArgs)
@@ -274,7 +280,7 @@ class CutsProvider {
         return 0
     }
     
-    func update(condition: CutsQueryCondition, value: String, conditionArgs: String) -> Int {
+    func update(condition: CutsQueryCondition, value: String, conditionColumn: CutsRecord, conditionArg: String) -> Int {
         let db = openDatabase()
         var updateStatementString = "UPDATE " + CutsConstants.CUTS_TABLE + " SET "
         
@@ -283,10 +289,10 @@ class CutsProvider {
         }
         
         switch condition {
-            case CutsQueryCondition.CUTS_ID:
-                updateStatementString.append(" WHERE " + String(describing: CutsRecord._id) + "=" + conditionArgs)
-            case CutsQueryCondition.SEARCH: //TODO: NilS
-                updateStatementString.append(" WHERE " + conditionArgs)
+            case CutsQueryCondition.EQUALS:
+                updateStatementString.append(" WHERE " + String(describing: conditionColumn) + "=" + conditionArg)
+            case CutsQueryCondition.SEARCH:
+                updateStatementString.append(" WHERE " + String(describing: conditionColumn) + " LIKE '%" + conditionArg + "%'")
             default:
                 return -1
         }
