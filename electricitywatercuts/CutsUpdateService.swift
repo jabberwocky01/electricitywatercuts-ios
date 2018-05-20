@@ -331,4 +331,15 @@ class CutsUpdateService {
         return waterCuts
     }
     
+    func organizeCutsDB() {
+        let oneMonthBefore = Calendar.current.date(byAdding: .month, value: -1, to: Date())
+        let locale: Locale = Locale(identifier: "en_US_POSIX")
+        let formatter: DateFormatter = DateFormatter()
+        formatter.locale = locale
+        formatter.dateFormat = CutsConstants.yyyyMMddTHHmmssZ
+        let oneMonthBeforeStr = formatter.string(from: oneMonthBefore!)
+    
+        cutsProvider.delete(condition: .SEARCH, conditionColumn: .order_end_date, conditionArg: "<'" + oneMonthBeforeStr + "'")
+    }
+    
 }

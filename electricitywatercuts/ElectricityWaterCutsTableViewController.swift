@@ -84,8 +84,8 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         // cutsUpdateHelper.delegate = self
         // cutsProvider.delegate = self
         
-        cutsProvider.createTable()
-        // cutsProvider.upgradeTable()
+        // cutsProvider.createTable()
+        cutsProvider.upgradeTable()
         cutsUpdateHelper.prepareCutListToShow()
         
         setUpSideMenu()

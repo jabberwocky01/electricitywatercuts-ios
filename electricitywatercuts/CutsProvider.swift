@@ -162,12 +162,10 @@ class CutsProvider {
             searchText.append(" " + (cut.reason ?? ""))
             bind(order: CutsRecord.search_text.rawValue, value: searchText) */
             
-            let orderStartDate = CutsHelper.formatDate(dateStr: (cut.startDate ?? ""),
-                                                       inputFormat: CutsConstants.ddMMyyyyHHmm, outputFormat: CutsConstants.yyyyMMddHHmmss);
+            let orderStartDate = CutsHelper.formatDateForDatabaseInsert(dateStr: (cut.startDate ?? ""))
             sqlite3_bind_text(insertStatement, Int32(CutsRecord.order_start_date.rawValue), orderStartDate, -1, SQLITE_TRANSIENT)
 
-            let orderEndDate = CutsHelper.formatDate(dateStr: (cut.endDate ?? ""),
-                                                        inputFormat:CutsConstants.ddMMyyyyHHmm, outputFormat: CutsConstants.yyyyMMddHHmmss);
+            let orderEndDate = CutsHelper.formatDateForDatabaseInsert(dateStr: (cut.endDate ?? ""))
             sqlite3_bind_text(insertStatement, Int32(CutsRecord.order_end_date.rawValue), orderEndDate, -1, SQLITE_TRANSIENT)
 
             let insertDate = formatter.string(from: Date())
@@ -249,22 +247,22 @@ class CutsProvider {
         return cutsList
     }
     
-    func delete(condition: CutsQueryCondition, conditionArgs: String) -> Int {
+    func delete(condition: CutsQueryCondition, conditionColumn: CutsRecord, conditionArg: String) -> Int {
         let db = openDatabase()
-        var deleteStmtString = "DELETE FROM " + CutsConstants.CUTS_TABLE + " WHERE "
+        var deleteStatementString = "DELETE FROM " + CutsConstants.CUTS_TABLE + " WHERE "
         
         switch condition {
             case CutsQueryCondition.EQUALS:
-                deleteStmtString.append(CutsConstants.KEY_ID + "=" + conditionArgs)
-            case CutsQueryCondition.SEARCH: //TODO: NilS
-                deleteStmtString.append(conditionArgs)
+                deleteStatementString.append(String(describing: conditionColumn) + "=" + conditionArg)
+            case CutsQueryCondition.SEARCH:
+                deleteStatementString.append(String(describing: conditionColumn) + conditionArg)
             default:
                 return -1
         }
         
         var deleteStmt: OpaquePointer?
         
-        if sqlite3_prepare(db, deleteStmtString, -1, &deleteStmt, nil) != SQLITE_OK{
+        if sqlite3_prepare(db, deleteStatementString, -1, &deleteStmt, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing delete: \(errmsg)")
             return -1

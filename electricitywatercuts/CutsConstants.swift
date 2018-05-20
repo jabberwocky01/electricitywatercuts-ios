@@ -72,14 +72,12 @@ struct CutsConstants {
     static let DEFAULT_TARGET_URI = "http://goo.gl/jgqzvz";
     //"http://play.google.com/store/apps/details?id=com.nils.electricitywatercuts"
     
-    static let yyyyMMddTHHmmss = "yyyy-MM-dd'T'HH:mm:ss"
-    static let yyyyMMdd_HHmmss = "yyyy-MM-dd HH:mm:ss"
     static let ddMMyyyyHHmm = "dd.MM.yyyy HH:mm"
     static let ddMMyyyyHHmmss = "dd.MM.yyyy HH:mm:ss"
-    static let yyyyMMddHHmmss = "yyyyMMddHHmmss"
     static let yyyyMMdd = "yyyy-MM-dd"
     static let ddMMyyyy = "dd.MM.yyyy"
     static let dMyyyy = "d.M.yyyy"
+    static let yyyyMMddTHHmmssZ = "yyyy-MM-dd'T'HH:mm:ssZ"
     
     static let turkishChars: [UInt32] = [0x131, 0x130, 0xFC, 0xDC, 0xF6, 0xD6, 0x15F, 0x15E, 0xE7, 0xC7, 0x11F, 0x11E]
     static let englishChars: [Character] = ["i", "I", "u", "U", "o", "O", "s", "S", "c", "C", "g", "G"]

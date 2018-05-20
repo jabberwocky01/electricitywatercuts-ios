@@ -63,6 +63,17 @@ class CutsHelper {
         return dateStr
     }
     
+    static func formatDateForDatabaseInsert(dateStr: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = CutsConstants.ddMMyyyyHHmm
+        if let date = dateFormatter.date(from: dateStr) {
+            dateFormatter.dateFormat = CutsConstants.yyyyMMddTHHmmssZ
+            return dateFormatter.string(from: date)
+        }
+        return dateStr
+    }
+    
     static func localizedText(language: String, key: String) ->String {
         let path = Bundle.main.path(forResource: language, ofType: "lproj")
         let bundle = Bundle(path: path!)
