@@ -11,7 +11,7 @@ import SideMenu
 
 class ElectricityWaterCutsTableViewController: UITableViewController, UISearchResultsUpdating {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    // @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var slideMenuButton: UIBarButtonItem!
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -25,7 +25,6 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
-
     fileprivate func setUpSideMenu() {
         
         // Define the menus
@@ -78,18 +77,34 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         navigationItem.titleView = searchController.searchBar
     }
     
+    fileprivate func setUpRefreshControl() {
+        self.refreshControl?.backgroundColor = UIColor.clear
+        self.refreshControl?.tintColor = UIColor.black
+        self.refreshControl?.attributedTitle = NSAttributedString(string: CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "pull_to_refresh"))
+        
+        self.refreshControl?.addTarget(self, action: #selector(ElectricityWaterCutsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        refreshCuts()
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    fileprivate func refreshCuts() {
+        cutsProvider.createTable()
+        // cutsProvider.upgradeTable()
+        cutsUpdateHelper.prepareCutListToShow()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // cutsUpdateHelper.delegate = self
-        // cutsProvider.delegate = self
-        
-        // cutsProvider.createTable()
-        cutsProvider.upgradeTable()
-        cutsUpdateHelper.prepareCutListToShow()
+        refreshCuts()
         
         setUpSideMenu()
         setUpSearchBar()
+        setUpRefreshControl()
         
         // filteredCuts = cutsUpdateHelper.cutsForNotification!
         
@@ -102,6 +117,13 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // update according to changed user settings
+        if CutsGlobalVariables.sharedManager.refreshAfterSettingChange == true {
+            refreshCuts()
+            self.tableView.reloadData()
+            CutsGlobalVariables.sharedManager.refreshAfterSettingChange = false
+        }
         
         // localization
         slideMenuButton.title = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "action_settings")
@@ -196,50 +218,4 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         })
         tableView.reloadData()
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

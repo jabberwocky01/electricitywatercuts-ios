@@ -62,6 +62,7 @@
 "cuts_app_already_btn" = "Önceden puanlandı";
 "no_cuts_text" = "Yükleme işlemi devam etmektedir veya görüntülenecek yeni bir kesinti bulunmamaktadır.";
 "navigation_back" = "Geri";
+"pull_to_refresh" = "Güncellemek için çekiniz";
 
 // Label for the "Done" button on the far left of action mode toolbars.
 "abc_action_mode_done" = "Tamam";

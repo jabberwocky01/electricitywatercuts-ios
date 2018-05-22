@@ -47,7 +47,7 @@ class OrderSettingViewController: UITableViewController, UIPickerViewDelegate, U
             orderCriteriaPicker.selectRow(1, inComponent: 0, animated: true)
         }
         
-        if orderPickerDataKeys[0] == CutsHelper.getSelectedOrderCriteriaChoice() {
+        if orderPickerDataKeys[0] == CutsHelper.getSelectedOrderChoice() {
             orderPicker.selectRow(0, inComponent: 0, animated: true)
         } else {
             orderPicker.selectRow(1, inComponent: 0, animated: true)
@@ -144,9 +144,10 @@ class OrderSettingViewController: UITableViewController, UIPickerViewDelegate, U
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == orderCriteriaPicker {
             UserDefaults.standard.set(orderCriteriaPickerDataKeys[row], forKey: CutsConstants.SETTING_ORDER_CRITERIA)
-        } else if pickerView == orderPicker{
+        } else if pickerView == orderPicker {
             UserDefaults.standard.set(orderPickerDataKeys[row], forKey: CutsConstants.SETTING_ORDER)
         }
+        CutsGlobalVariables.sharedManager.refreshAfterSettingChange = true
     }
     
     fileprivate func setLanguageInOrderCriteriaLabel() {
@@ -156,5 +157,4 @@ class OrderSettingViewController: UITableViewController, UIPickerViewDelegate, U
     fileprivate func setLanguageInOrderLabel() {
         orderLabel.text = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_order_option")
     }
-    
 }

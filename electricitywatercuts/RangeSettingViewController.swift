@@ -94,10 +94,10 @@ class RangeSettingViewController: UITableViewController, UIPickerViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         UserDefaults.standard.set(pickerDataKeys[row], forKey: CutsConstants.SETTING_RANGE)
+        CutsGlobalVariables.sharedManager.refreshAfterSettingChange = true
     }
     
     fileprivate func setLanguageInLabel() {
         rangePickLabel.text = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_range")
     }
-
 }

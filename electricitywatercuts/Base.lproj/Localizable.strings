@@ -62,3 +62,4 @@
 "cuts_app_already_btn" = "Already have";
 "no_cuts_text" = "Loading progress continues or there are no new cuts to be listed.";
 "navigation_back" = "Back";
+"pull_to_refresh" = "Pull to refresh";

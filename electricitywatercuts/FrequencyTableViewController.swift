@@ -134,6 +134,8 @@ class FrequencyTableViewController: UITableViewController, UIPickerViewDelegate,
                 UserDefaults.standard.set(searchStr, forKey: CutsConstants.SETTING_SEARCH_STR_OPTION)
             }
         }
+        
+        CutsGlobalVariables.sharedManager.refreshAfterSettingChange = false
     }
     
     fileprivate func setLanguageInFrequencyLabel() {
@@ -143,5 +145,4 @@ class FrequencyTableViewController: UITableViewController, UIPickerViewDelegate,
     fileprivate func setLanguageInSearchStringLabel() {
         searchStringLabel.text = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_search_str")
     }
-    
 }

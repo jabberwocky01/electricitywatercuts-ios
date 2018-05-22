@@ -40,7 +40,7 @@ class CutsUpdateService {
         let range = CutsHelper.getSelectedRangeChoice()
         if ("0" == range) {
             conditionColumn = CutsProvider.CutsRecord.is_current
-            conditionArg = "T"
+            conditionArg = "'T'"
         }
         
         let orderCriteriaOption = CutsHelper.getSelectedOrderCriteriaChoice()

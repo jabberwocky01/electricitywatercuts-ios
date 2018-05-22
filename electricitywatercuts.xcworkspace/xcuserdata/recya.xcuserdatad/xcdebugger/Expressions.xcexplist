@@ -3,7 +3,31 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "SideMenuTableViewController.prepare(for:sender:):SideMenuTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.source">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static CutsHelper.getSelectedOrderCriteriaChoice():CutsHelper.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.string(forKey: CutsConstants.SETTING_ORDER_CRITERIA)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CutsUpdateService.getAnatoliaElectricityData(link:):CutsUpdateService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "OrderSettingViewController.pickerView(_:didSelectRow:inComponent:):OrderSettingViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.delegate">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "static CutsHelper.formatDate(dateStr:inputFormatStr:outputFormatStr:):CutsHelper.swift">
@@ -25,14 +49,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static CutsHelper.getSelectedOrderCriteriaChoice():CutsHelper.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UserDefaults.standard.string(forKey: CutsConstants.SETTING_ORDER_CRITERIA)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "CutsProvider.query(condition:conditionColumn:conditionArg:sortOrderBy:sortOrder:):CutsProvider.swift">
          <PersistentStrings>
             <PersistentString
@@ -43,6 +59,14 @@
             </PersistentString>
             <PersistentString
                value = "Int32(CutsRecord.operator_name.rawValue)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ElectricityWaterCutsTableViewController.viewWillAppear(_:):ElectricityWaterCutsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "refreshAfterSettingChange">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -94,6 +94,7 @@ class LanguageSettingViewController: UITableViewController, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         UserDefaults.standard.set(pickerDataKeys[row], forKey: CutsConstants.SETTING_LANG)
+        CutsGlobalVariables.sharedManager.refreshAfterSettingChange = false
         //update language in label
         setLanguageInLabel()
     }
@@ -101,5 +102,4 @@ class LanguageSettingViewController: UITableViewController, UIPickerViewDelegate
     fileprivate func setLanguageInLabel() {
         languagePickLabel.text = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_lang")
     }
-
 }
