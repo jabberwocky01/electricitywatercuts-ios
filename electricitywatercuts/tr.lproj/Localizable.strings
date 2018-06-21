@@ -54,7 +54,7 @@
 "for_more_cuts_label" = "Daha fazlası:";
 "cuts_ticker" = "Yeni Kesinti Bildirimi";
 "cuts_notify_text" = "Yeni arıza-kesinti duyuruları var.";
-"cuts_notify_header" = "Yeni %1$s Kesintisi:";
+"cuts_notify_header" = "Yeni %@ Kesintisi:";
 "cuts_app_rate_sum" = "%@ Uygulamasını Puanla";
 "cuts_app_rate" = "Eğer %@ uygulamasından memnun kaldıysanız, lütfen oy verin/yorum yapınız. Desteğiniz için teşekkürler!";
 "cuts_app_rate_btn" = "Puanla";

@@ -20,19 +20,14 @@ class CutsUpdateService {
         self.cutListToShow = [Cuts]()
     }
     
-    
     func updateCutsAsPrevious() {
         // update as "previous"
         let value = String(describing: CutsProvider.CutsRecord.is_current) + "='F' "
         cutsProvider.update(condition: .EQUALS, value: value, conditionColumn: .is_current, conditionArg: "'T'")
     }
     
-    func addNewCuts(cutsList: [Cuts]) {
-        cutsProvider.insert(cutsList: cutsList)
-    }
-    
     func prepareCutListToShow() {
-        refreshCuts(notificationFlag: false)
+        refreshCuts()
         
         var conditionColumn: CutsProvider.CutsRecord? = nil
         var conditionArg: String? = nil
@@ -46,22 +41,20 @@ class CutsUpdateService {
         let orderCriteriaOption = CutsHelper.getSelectedOrderCriteriaChoice()
         let orderOption = CutsHelper.getSelectedOrderChoice()
             
-        var sortOrderBy = CutsProvider.CutsRecord.end_date;
+        var sortOrderBy = CutsProvider.CutsRecord.end_date
         if("start" == orderCriteriaOption) {
             sortOrderBy = CutsProvider.CutsRecord.start_date
         }
-        var sortOrder = " DESC";
+        var sortOrder = " DESC"
         if("asc" == orderOption) {
-            sortOrder = " ASC";
+            sortOrder = " ASC"
         }
         
         cutListToShow = cutsProvider.query(condition: .EQUALS, conditionColumn: conditionColumn, conditionArg: conditionArg, sortOrderBy: sortOrderBy, sortOrder: sortOrder)
 
     }
     
-    func refreshCuts(notificationFlag: Bool) {
-        // delegate?.didReceiveRefreshCuts(notificationFlag: notificationFlag)
-        
+    func refreshCuts() -> [Cuts] {
         let urls: [String] = CutsConstants.CUTS_LINK_LIST
         
         updateCutsAsPrevious();
@@ -82,15 +75,7 @@ class CutsUpdateService {
             }
         }
     
-        addNewCuts(cutsList: cutsList);
-        
-        if (notificationFlag) {
-            // Trigger a notification.
-            // broadcastNotification();
-        }
-    
-        // return cutsList
-    
+        return cutsProvider.insert(cutsList: cutsList);
     }
 
     func getEuropeElectricityData(link: String) -> [Cuts] {
@@ -340,6 +325,58 @@ class CutsUpdateService {
         let oneMonthBeforeStr = formatter.string(from: oneMonthBefore!)
     
         cutsProvider.delete(condition: .SEARCH, conditionColumn: .order_end_date, conditionArg: "<'" + oneMonthBeforeStr + "'")
+    }
+    
+    func prepareNotificationContent() {
+        if (CutsHelper.getSelectedFrequencyChoice() != "-1") {
+            cutsProvider.createTable()
+            // cutsProvider.upgradeTable()
+            let cutsForNotification = refreshCuts()
+            
+            // var detailedText = "", cutTitle = "";
+            if (cutsForNotification.count == 1) {
+                
+                let cut = cutsForNotification[0];
+                
+                var cutTitle = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "water_label");
+                if (cut.type == CutsConstants.CUT_TYPE_ELECTRICITY) {
+                    cutTitle = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "electricity_label");
+                }
+                cutTitle = NSString(format: CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_notify_header") as NSString, cutTitle) as String
+                
+                var detailedText: String = (cut.location ?? "")
+                detailedText.append(" " + (cut.startDate ?? ""))
+                detailedText.append(" - " + (cut.endDate ?? ""))
+                
+                /* cutsNotificationBuilder.setContentTitle(cutTitle)
+                 .setContentText(detailedText)
+                 .setStyle(new NotificationCompat.BigTextStyle().bigText(detailedText)); */
+                
+            } else {
+                /*  for (Cuts cut : cutsForNotification) {
+                 
+                 cutTitle = getString(R.string.water_label);
+                 if ("e".equals(cut.getType()))
+                 cutTitle = getString(R.string.electricity_label);
+                 
+                 detailedText += cutTitle + ": " + cut.getLocation() + " " +
+                 cut.getStartDate() + " - " + cut.getEndDate() + System.getProperty("line.separator");
+                 
+                 cutsNotificationBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(detailedText))
+                 .setNumber(++numOfMessages);
+                 
+                 }
+                 */
+            }
+            /*       if(bundle.getString(CutsConstants.INTENT_CUTS_FREQ)!=null) {
+             String freqPreferenceStr = bundle.getString(CutsConstants.INTENT_CUTS_FREQ);
+             freqPreference = Integer.parseInt(freqPreferenceStr);
+             registerAlarm();
+             } else if (bundle.getBoolean(CutsConstants.INTENT_CUTS_NOTIFICATION_FLAG, false)) {
+             notificationFlag = true;
+             }
+             */
+        }
     }
     
 }

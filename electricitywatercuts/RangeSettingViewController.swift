@@ -93,8 +93,13 @@ class RangeSettingViewController: UITableViewController, UIPickerViewDelegate, U
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        UserDefaults.standard.set(pickerDataKeys[row], forKey: CutsConstants.SETTING_RANGE)
-        CutsGlobalVariables.sharedManager.refreshAfterSettingChange = true
+        var settingHasChanged = false;
+        // check if setting has changed
+        if (CutsHelper.getSelectedRangeChoice() != pickerDataKeys[row]) {
+            settingHasChanged = true;
+            UserDefaults.standard.set(pickerDataKeys[row], forKey: CutsConstants.SETTING_RANGE)
+        }
+        CutsGlobalVariables.sharedManager.refreshAfterSettingChange = settingHasChanged
     }
     
     fileprivate func setLanguageInLabel() {

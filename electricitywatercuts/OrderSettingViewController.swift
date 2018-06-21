@@ -142,12 +142,21 @@ class OrderSettingViewController: UITableViewController, UIPickerViewDelegate, U
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var settingHasChanged = false;
         if pickerView == orderCriteriaPicker {
-            UserDefaults.standard.set(orderCriteriaPickerDataKeys[row], forKey: CutsConstants.SETTING_ORDER_CRITERIA)
+            // check if setting has changed
+            if (CutsHelper.getSelectedOrderCriteriaChoice() != orderCriteriaPickerDataKeys[row]) {
+                settingHasChanged = true;
+                UserDefaults.standard.set(orderCriteriaPickerDataKeys[row], forKey: CutsConstants.SETTING_ORDER_CRITERIA)
+            }
         } else if pickerView == orderPicker {
-            UserDefaults.standard.set(orderPickerDataKeys[row], forKey: CutsConstants.SETTING_ORDER)
+            // check if setting has changed
+            if (CutsHelper.getSelectedOrderChoice() != orderPickerDataKeys[row]) {
+                settingHasChanged = true;
+                UserDefaults.standard.set(orderPickerDataKeys[row], forKey: CutsConstants.SETTING_ORDER)
+            }
         }
-        CutsGlobalVariables.sharedManager.refreshAfterSettingChange = true
+        CutsGlobalVariables.sharedManager.refreshAfterSettingChange = settingHasChanged
     }
     
     fileprivate func setLanguageInOrderCriteriaLabel() {

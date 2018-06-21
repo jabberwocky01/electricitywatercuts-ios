@@ -8,8 +8,9 @@
 
 import UIKit
 import SideMenu
+import UserNotifications
 
-class ElectricityWaterCutsTableViewController: UITableViewController, UISearchResultsUpdating {
+class ElectricityWaterCutsTableViewController: UITableViewController, UISearchResultsUpdating, UNUserNotificationCenterDelegate {
     
     // @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var slideMenuButton: UIBarButtonItem!
@@ -61,7 +62,6 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
     }
     
     fileprivate func setUpSearchBar() {
-        
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -95,6 +95,26 @@ class ElectricityWaterCutsTableViewController: UITableViewController, UISearchRe
         cutsProvider.createTable()
         // cutsProvider.upgradeTable()
         cutsUpdateHelper.prepareCutListToShow()
+    }
+    
+    func scheduleNotification() {
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "cuts_ticker", arguments: nil)
+        content.subtitle = NSString.localizedUserNotificationString(forKey: "cuts_notify_text", arguments: nil)
+        content.body = "The early bird catches the worm, but the second mouse gets the cheese."
+        content.categoryIdentifier = "notification"
+        content.sound = UNNotificationSound.default()
+        content.threadIdentifier = "cutsNotification"
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 10
+        dateComponents.minute = 30
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
     }
     
     override func viewDidLoad() {

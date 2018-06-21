@@ -118,14 +118,16 @@ class CutsProvider {
          */
     }
     
-    func insert(cutsList: [Cuts]) {
+    func insert(cutsList: [Cuts]) -> [Cuts] {
+        var cutsForNotification = [Cuts]();
+        
         let db = openDatabase()
         //preparing the query
         var insertStatement: OpaquePointer? = nil
 
         if sqlite3_prepare_v2(db, CUTS_DATABASE_INSERT, -1, &insertStatement, nil) != SQLITE_OK {
             print("INSERT statement could not be prepared.")
-            return
+            return [Cuts]()
         }
         
         let locale: Locale = Locale(identifier: "tr-TR")
@@ -176,11 +178,21 @@ class CutsProvider {
             //executing the query to insert values
             if sqlite3_step(insertStatement) != SQLITE_DONE {
                 print("failure inserting cuts")
-                return
+                return [Cuts]()
             }
             sqlite3_reset(insertStatement)
+            
+            if (CutsHelper.getSavedSearchString().isEmpty) {
+                cutsForNotification.append(cut)
+            } else {
+                if (CutsHelper.compareCutsStr(str1: cut.getSearchString(), str2: CutsHelper.getSavedSearchString())) {
+                    cutsForNotification.append(cut)
+                }
+            }
         }
         sqlite3_finalize(insertStatement)
+        
+        return cutsForNotification
     }
     
     /*
