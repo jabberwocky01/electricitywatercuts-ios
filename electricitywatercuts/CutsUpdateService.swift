@@ -327,32 +327,34 @@ class CutsUpdateService {
         cutsProvider.delete(condition: .SEARCH, conditionColumn: .order_end_date, conditionArg: "<'" + oneMonthBeforeStr + "'")
     }
     
-    func prepareNotificationContent() {
+    func prepareNotificationContent() -> String {
+        var cutsListStr : String = "";
+
         if (CutsHelper.getSelectedFrequencyChoice() != "-1") {
             cutsProvider.createTable()
             // cutsProvider.upgradeTable()
             let cutsForNotification = refreshCuts()
             
-            // var detailedText = "", cutTitle = "";
-            if (cutsForNotification.count == 1) {
-                
-                let cut = cutsForNotification[0];
-                
+            for cut in cutsForNotification {
                 var cutTitle = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "water_label");
                 if (cut.type == CutsConstants.CUT_TYPE_ELECTRICITY) {
                     cutTitle = CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "electricity_label");
                 }
                 cutTitle = NSString(format: CutsHelper.localizedText(language: CutsHelper.getLocaleForApp(), key: "cuts_notify_header") as NSString, cutTitle) as String
                 
+                cutsListStr.append(cutTitle)
+                
                 var detailedText: String = (cut.location ?? "")
                 detailedText.append(" " + (cut.startDate ?? ""))
                 detailedText.append(" - " + (cut.endDate ?? ""))
+                
+                cutsListStr.append(detailedText)
                 
                 /* cutsNotificationBuilder.setContentTitle(cutTitle)
                  .setContentText(detailedText)
                  .setStyle(new NotificationCompat.BigTextStyle().bigText(detailedText)); */
                 
-            } else {
+            }
                 /*  for (Cuts cut : cutsForNotification) {
                  
                  cutTitle = getString(R.string.water_label);
@@ -367,7 +369,7 @@ class CutsUpdateService {
                  
                  }
                  */
-            }
+            
             /*       if(bundle.getString(CutsConstants.INTENT_CUTS_FREQ)!=null) {
              String freqPreferenceStr = bundle.getString(CutsConstants.INTENT_CUTS_FREQ);
              freqPreference = Integer.parseInt(freqPreferenceStr);
@@ -377,6 +379,8 @@ class CutsUpdateService {
              }
              */
         }
+        
+        return cutsListStr
     }
     
 }

@@ -39,6 +39,7 @@ struct CutsConstants {
     static let SETTING_ORDER_CRITERIA = "PREF_ORDER_OPTION"
     static let SETTING_SEARCH_STR_OPTION = "PREF_SEARCH_STR_OPTION"
     static let SETTING_LANG = "PREF_LANG"
+    static let SETTING_DELETION_FREQ = "SETTING_DELETION_FREQ"
     
     //  public static final Uri CONTENT_URI = Uri.parse("content://com.nils.electricitywatercuts/cuts");
     
